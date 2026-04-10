@@ -62,6 +62,15 @@
   margin: 0;
 }
 
+.warning {
+  justify-items: center;
+  box-sizing: border-box;
+  background-color: #f8c36f;
+  width: 100%;
+  padding: 4px;
+}
+
+
 .intro {
   display: flex;
   flex-direction: column;

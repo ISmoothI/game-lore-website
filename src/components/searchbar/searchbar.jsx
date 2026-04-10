@@ -56,8 +56,9 @@ export default function SearchBar() {
                                         <h5>{game.title}</h5>
                                         {/*<h5 style={{ margin: 0 }}>{game.description}</h5>*/}
                                         <div className={styles.description__container}>
-                                            <h6>2013</h6>
-                                            <h6>PS2</h6>
+                                            {game.tags.map((tag, index) => (
+                                                <h6 key={index}>{tag}</h6>
+                                            ))}
                                         </div>
                                     </div>
                                 </Link>

@@ -28,6 +28,9 @@ export default function Home() {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
+                <div className={styles.warning}>
+                    <h5>This website is actively being developed! Your patience is appreciated!</h5>
+                </div>
                 <div className={styles.intro}>
                     <h1>
                         Stories made to be<br/>

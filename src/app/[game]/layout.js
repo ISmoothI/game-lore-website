@@ -32,12 +32,12 @@ export default function SidebarLayout({ params, children }) {
                             {/*    <p className={styles.sidebar__title}>{gameTitle}</p>*/}
                             {/*</div>*/}
                             <div className={styles.sidebar__options}>
-                                <div className={styles.sidebar__option}>
-                                    <Link className={styles.sidebar__link} href="/">
-                                        <Image src={"/images/menu_icon.svg"} alt={"Menu Icon"} width={100} height={100} />
-                                        Menu Sandbox
-                                    </Link>
-                                </div>
+                                {/*<div className={styles.sidebar__option}>*/}
+                                {/*    <Link className={styles.sidebar__link} href="/">*/}
+                                {/*        <Image src={"/images/menu_icon.svg"} alt={"Menu Icon"} width={100} height={100} />*/}
+                                {/*        Menu Sandbox*/}
+                                {/*    </Link>*/}
+                                {/*</div>*/}
                                 <div className={styles.sidebar__option}>
                                     <Link className={styles.sidebar__link} href={`/${game}/achievements`}>
                                         <Image src={"/images/trophy.svg"} alt={"Trophy Icon"} width={100} height={100} />
