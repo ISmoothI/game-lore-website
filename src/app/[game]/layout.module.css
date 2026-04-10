@@ -1,0 +1,149 @@
+.children {
+    display: flex;
+    flex-direction: row;
+    background-color: #e6ebe0;
+}
+
+.sidebar {
+    font-family: var(--font-urbanist);
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    /*min-height: 100vh;*/
+    width: fit-content;
+    /*align-items: flex-start;*/
+    padding: 32px 12px 0 48px;
+    /*margin: 0;*/
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.sidebar__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar__button {
+    box-sizing: border-box;
+    border-radius: 8px;
+    /*border: none;*/
+    background: #e6ebe0;
+    filter: drop-shadow(3px 3px black);
+}
+
+.sidebar__button:hover {
+    background: #e6ebe0;
+    filter: brightness(0.9);
+}
+
+.sidebar__closed {
+    background-color: #e6ebe0;
+}
+
+.sidebar__open {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #e6ebe0;
+    border: 1px solid black;
+    filter: drop-shadow(2px 3px black);
+    position: sticky;
+    top: 20px;
+    width: 190px;
+    padding: 4px 8px 18px 18px;
+    gap: 24px;
+    transition: filter 0.2s;
+}
+
+.sidebar__open:hover {
+    filter: drop-shadow(4px 4px black);
+    border-radius: 0;
+    transition: filter 0.2s;
+}
+
+.sidebar__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    gap: 16px;
+}
+
+.sidebar__button {
+    width: fit-content;
+    height: fit-content;
+}
+
+.sidebar__title {
+    font-weight: bold;
+}
+
+.sidebar__options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sidebar__option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 4px;
+    gap: 8px;
+}
+
+.sidebar__option img {
+    width: 22px;
+    height: fit-content;
+}
+
+@media (max-width: 700px) {
+
+    .children {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        padding: 24px 16px 0 16px;
+        align-self: center;
+    }
+
+    .sidebar__link {
+        flex-direction: column;
+    }
+
+    .sidebar__open {
+        position: static;
+        width: 100%;
+        align-items: center;
+    }
+
+    .sidebar__header {
+        width: 100%;
+
+    }
+
+    .sidebar__button {
+        /*justify-self: flex-start;*/
+    }
+
+    .sidebar__options {
+        flex-direction: row;
+        align-items: end;
+        gap: 48px;
+    }
+
+    .sidebar__option {
+        flex-direction: column;
+        text-wrap: nowrap;
+    }
+
+}

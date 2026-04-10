@@ -1,0 +1,18 @@
+.details {
+    border-top: 2px solid
+}
+
+.summary {
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+.question {
+    display: inline;
+}
+
+.answer {
+    padding: 10px;
+}
