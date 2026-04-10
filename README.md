@@ -1,2 +1,2 @@
-## About
+## Lorehive
 Lorechive is a website dedicated to replicating video game menus from the ground up. The main purpose is it serves as a form of sandbox that allows users to explore their favorite video games and view/interact with the same recreated UI/UX elements present in the original. There are general data pages that all game entries share such as trophy information as well as distinct pages specefic to a few pages.
