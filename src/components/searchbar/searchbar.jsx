@@ -5,10 +5,10 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import {prefix} from "@/lib/prefix";
 import styles from "@/components/searchbar/searchbar.module.css";
 
 export default function SearchBar() {
-    const prefix = process.env.NODE_ENV === "production" ? "/game-lore-website" : "";
     const [searchTerm, setSearchTerm] = useState("");
     const [data, setData] = useState(null);
 

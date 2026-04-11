@@ -7,6 +7,7 @@ import Image from "next/image";
 import Accordion from "@/components/accordian/accordion";
 import Card from "@/components/card/card";
 
+import {prefix} from "../lib/prefix";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -42,12 +43,12 @@ export default function Home() {
                     </h3>
                     <div className={styles.stats__container}>
                         <Card className={styles.card__centered}>
-                            <Image src={'/images/checkmark.svg'} alt={"Checkmark"} width="100" height="70" />
+                            <Image src={`${prefix}/images/checkmark.svg`} alt={"Checkmark"} width="100" height="70" />
                             <h3>Completed</h3>
                             <h4>0</h4>
                         </Card>
                         <Card className={styles.card__centered}>
-                            <Image src={'/images/exclamation.svg'} alt={"Exclamation"} width="100" height="70" />
+                            <Image src={`${prefix}/images/exclamation.svg`} alt={"Exclamation"} width="100" height="70" />
                             <h3>In Progress</h3>
                             <h4>1</h4>
                         </Card>

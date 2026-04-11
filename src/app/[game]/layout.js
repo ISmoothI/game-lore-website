@@ -5,6 +5,7 @@ import {use, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import {prefix} from "@/lib/prefix";
 import styles from "./layout.module.css";
 
 export default function SidebarLayout({ params, children }) {
@@ -40,7 +41,7 @@ export default function SidebarLayout({ params, children }) {
                                 {/*</div>*/}
                                 <div className={styles.sidebar__option}>
                                     <Link className={styles.sidebar__link} href={`/${game}/achievements`}>
-                                        <Image src={"/images/trophy.svg"} alt={"Trophy Icon"} width={100} height={100} />
+                                        <Image src={`${prefix}/images/trophy.svg`} alt={"Trophy Icon"} width={100} height={100} />
                                         Achievements
                                     </Link>
                                 </div>

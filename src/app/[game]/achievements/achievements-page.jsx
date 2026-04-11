@@ -8,10 +8,11 @@ import Link from "next/link";
 import Loading from "@/components/loading/loading";
 
 import styles from "./achievements-page.module.css";
+import {prefix} from "../../../lib/prefix";
 
 export default function AchievementsPage({ data }) {
-    const image = '/images/image.svg'
-    const trophy = "/images/trophy.svg";
+    const image = `${prefix}/images/image.svg`
+    const trophy = `${prefix}/images/trophy.svg`;
 
     const rarityPriority = { Platinum: 1, Gold: 2, Silver: 3, Bronze: 4 };
 
