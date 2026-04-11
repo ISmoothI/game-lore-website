@@ -5,7 +5,7 @@ const nextConfig = {
   /* config options here */
     output: "export",
     basePath: isProd ? "/game-lore-website" : ``,
-    assetsPath: isProd ? "/game-lore-website/" : "/"
+    assetPrefix: isProd ? "/game-lore-website/" : "/"
 };
 
 export default nextConfig;
