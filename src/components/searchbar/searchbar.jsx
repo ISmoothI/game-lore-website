@@ -5,8 +5,6 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import checkmark from '../../../public/images/checkmark.svg';
-
 import styles from "@/components/searchbar/searchbar.module.css";
 
 export default function SearchBar() {
