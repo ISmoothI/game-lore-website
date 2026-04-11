@@ -8,13 +8,14 @@ import Image from "next/image";
 import styles from "@/components/searchbar/searchbar.module.css";
 
 export default function SearchBar() {
+    const prefix = process.env.NODE_ENV === "production" ? "/game-lore-website" : "";
     const [searchTerm, setSearchTerm] = useState("");
     const [data, setData] = useState(null);
 
     useEffect(() => {
         async function loadData() {
             try {
-                const res = await fetch('/data/games.json');
+                const res = await fetch(`${prefix}/data/games.json`);
                 const data = await res.json();
                 setData(data);
             } catch (err) {
