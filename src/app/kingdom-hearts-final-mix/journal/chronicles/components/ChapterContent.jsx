@@ -1,20 +1,14 @@
 'use client'
 
-import styles from "@/app/kingdom-hearts-1/journal/journal.module.css"
-import MenuBox from "@/app/kingdom-hearts-1/journal/menuBox";
-import JournalLoop from "@/app/kingdom-hearts-1/journal/journalloop";
+import styles from "@/app/kingdom-hearts-final-mix/journal/journal.module.css"
+import MenuBox from "@/app/kingdom-hearts-final-mix/journal/menuBox";
+import JournalLoop from "@/app/kingdom-hearts-final-mix/journal/journalloop";
 import Link from "next/link";
-import NoteTextBox from "@/app/kingdom-hearts-1/journal/chronicles/notetextbox";
+import NoteTextBox from "@/app/kingdom-hearts-final-mix/journal/chronicles/notetextbox";
 import {useState} from "react";
 
-export default function Page() {
+export default function ChapterContent({ maxPageNumber, textArray }) {
     const [pageNumber, setPageNumber] = useState(1);
-    const maxPageNumber = 3;
-    const textArray = [
-        ["After falling through", "a deep hole,", "Sora and company", "arrived in Wonderland", "and followed", "a white rabbit all", "the way to the Queen", "of Hearts' castle.", "There they witnessed", "a trial in which", "the unreasonable", "queen falsely", "accused Alice.", "", "", ""],
-        ["Angered by this", "injustice, Sora", "rushed in and", "challenged the", "queen. He and his", "friends found", "evidence proving", "Alice's innocence.", "But the queen simply", "accused them next,", "and ordered her card", "soldiers to seize them.", "", "", "", ""],
-        ["After fighting them", "off, Sora noticed", "that Alice had", "disappeared from her", "cage. While looking", "for her, he and his", "friends ran into", "the Trickmaster.", "They defeated", "the powerful monster,", "but Alice's", "whereabouts", "remained unknown.", "", "", ""]
-    ];
 
     return (
         <>

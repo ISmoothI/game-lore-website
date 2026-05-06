@@ -2,10 +2,10 @@
 
 import SpeechBubble from "../speechbubble"
 import styles from "../journal.module.css"
-import MenuBox from "@/app/kingdom-hearts-1/journal/menuBox";
-import JournalLoop from "@/app/kingdom-hearts-1/journal/journalloop";
+import MenuBox from "@/app/kingdom-hearts-final-mix/journal/menuBox";
+import JournalLoop from "@/app/kingdom-hearts-final-mix/journal/journalloop";
 import Link from "next/link";
-import NoteTextBox from "@/app/kingdom-hearts-1/journal/chronicles/notetextbox";
+import NoteTextBox from "@/app/kingdom-hearts-final-mix/journal/chronicles/notetextbox";
 
 export default function Chronicles() {
     return (
@@ -16,7 +16,7 @@ export default function Chronicles() {
                         <h2 className={styles.headerMenu}>Menu</h2>
                     </div>
                     <div className={styles.headerContainer}>
-                        <Link href={"/kingdom-hearts-1/journal"}>
+                        <Link href={"/kingdom-hearts-final-mix/journal"}>
                             <MenuBox text={"Journal"}></MenuBox>
                         </Link>
                         <h2 className={styles.titleText}>|| Chronicles</h2>
@@ -43,11 +43,11 @@ export default function Chronicles() {
                         </div>
                         <div className={"flex-container-column"}>
                             <div className={styles.journalOpenPageRightBg}>
-                                <Link href={"/kingdom-hearts-1/journal/chronicles/sorasstory/"}>
+                                <Link href={"/kingdom-hearts-final-mix/journal/chronicles/sorasstory/"}>
                                     <NoteTextBox text={"Sora's Story"}></NoteTextBox>
                                 </Link>
                                 <NoteTextBox text={""}></NoteTextBox>
-                                <Link href={"/kingdom-hearts-1/journal/chronicles/wonderland"}>
+                                <Link href={"/kingdom-hearts-final-mix/journal/chronicles/wonderland"}>
                                     <NoteTextBox text={"Wonderland"}></NoteTextBox>
                                 </Link>
                                 <NoteTextBox text={""}></NoteTextBox>
