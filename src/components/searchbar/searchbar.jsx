@@ -5,8 +5,7 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import checkmark from '../../../public/images/checkmark.svg';
-
+import {prefix} from "@/lib/prefix";
 import styles from "@/components/searchbar/searchbar.module.css";
 
 export default function SearchBar() {
@@ -16,7 +15,7 @@ export default function SearchBar() {
     useEffect(() => {
         async function loadData() {
             try {
-                const res = await fetch('/data/games.json');
+                const res = await fetch(`${prefix}/data/games.json`);
                 const data = await res.json();
                 setData(data);
             } catch (err) {
