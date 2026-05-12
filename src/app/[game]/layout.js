@@ -35,7 +35,7 @@ export default function SidebarLayout({ params, children }) {
                             <div className={styles.sidebar__options}>
                                 <div className={styles.sidebar__option}>
                                     <Link className={styles.sidebar__link} href={`/${game}/`}>
-                                        <Image src={"/images/menu_icon.svg"} alt={"Sandbox Menu Icon"} width={100} height={100} />
+                                        <Image src={`${prefix}/images/menu_icon.svg`} alt={"Sandbox Menu Icon"} width={100} height={100} />
                                         Menu Sandbox
                                     </Link>
                                 </div>
