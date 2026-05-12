@@ -25,7 +25,7 @@ const urbanist = Urbanist({
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${urbanist.variable}`} style={{ margin: "0px" }}>
+            <body className={`${urbanist.variable}`} style={{ background: "#e4e9de", margin: "0px" }}>
                 <div className={styles.navbar}>
                     <div className={styles.navbar__left}>
                         <Link href={'/'}><h2>Lorechive</h2></Link>

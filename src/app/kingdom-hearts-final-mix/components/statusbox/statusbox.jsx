@@ -2,7 +2,7 @@
 
 import styles from './statusbox.module.css';
 
-export default function StatusBox({ name, level }) {
+export default function StatusBox({ name }) {
 
 
     return(
