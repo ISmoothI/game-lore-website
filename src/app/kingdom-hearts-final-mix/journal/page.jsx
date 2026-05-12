@@ -2,8 +2,8 @@
 
 import SpeechBubble from "./speechbubble"
 import styles from "./journal.module.css"
-import MenuBox from "@/app/kingdom-hearts-1/journal/menuBox";
-import JournalLoop from "@/app/kingdom-hearts-1/journal/journalloop";
+import MenuBox from "@/app/kingdom-hearts-final-mix/journal/menuBox";
+import JournalLoop from "@/app/kingdom-hearts-final-mix/journal/journalloop";
 import Link from "next/link";
 
 export default function Page() {
@@ -41,7 +41,7 @@ export default function Page() {
                                 <div className={styles.journalBookLine}>
                                     <div className={styles.journalBookInnerBg}>
                                         <div className={styles.journalBookTextBg}>
-                                            <Link href={"/kingdom-hearts-1/journal/chronicles"}>Chronicles</Link>
+                                            <Link href={"/kingdom-hearts-final-mix/journal/chronicles"}>Chronicles</Link>
                                             <p>Ansem's Report</p>
                                             <p>Characters</p>
                                             <p>101 Dalmatians</p>

@@ -1,11 +1,11 @@
 'use client'
 
-import styles from "@/app/kingdom-hearts-1/journal/journal.module.css"
-import MenuBox from "@/app/kingdom-hearts-1/journal/menuBox";
-import JournalLoop from "@/app/kingdom-hearts-1/journal/journalloop";
+import styles from "@/app/kingdom-hearts-final-mix/journal/journal.module.css"
+import MenuBox from "@/app/kingdom-hearts-final-mix/journal/menuBox";
+import JournalLoop from "@/app/kingdom-hearts-final-mix/journal/journalloop";
 import Link from "next/link";
-import NoteTextBox from "@/app/kingdom-hearts-1/journal/chronicles/notetextbox";
-import SpeechBubble from "@/app/kingdom-hearts-1/journal/speechbubble";
+import NoteTextBox from "@/app/kingdom-hearts-final-mix/journal/chronicles/notetextbox";
+import SpeechBubble from "@/app/kingdom-hearts-final-mix/journal/speechbubble";
 import chapters from "../data/content.json";
 
 export default function ChapterList() {
@@ -44,11 +44,11 @@ export default function ChapterList() {
                         </div>
                         <div className={"flex-container-column"}>
                             <div className={styles.journalOpenPageRightBg}>
-                                <Link href={"/src/app/kingdom-hearts-1/journal/chronicles/sorasstory/"}>
+                                <Link href={"/src/app/kingdom-hearts-final-mix/journal/chronicles/sorasstory/"}>
                                     <NoteTextBox text={"Sora's Story"}></NoteTextBox>
                                 </Link>
                                 <NoteTextBox text={""}></NoteTextBox>
-                                <Link href={"/src/app/kingdom-hearts-1/journal/chronicles/wonderland"}>
+                                <Link href={"/src/app/kingdom-hearts-final-mix/journal/chronicles/wonderland"}>
                                     <NoteTextBox text={"Wonderland"}></NoteTextBox>
                                 </Link>
                                 <NoteTextBox text={""}></NoteTextBox>

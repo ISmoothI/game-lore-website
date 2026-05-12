@@ -1,20 +1,19 @@
 'use client'
 
-import styles from "@/app/kingdom-hearts-1/journal/journal.module.css"
-import MenuBox from "@/app/kingdom-hearts-1/journal/menuBox";
-import JournalLoop from "@/app/kingdom-hearts-1/journal/journalloop";
+import styles from "@/app/kingdom-hearts-final-mix/journal/journal.module.css"
+import MenuBox from "@/app/kingdom-hearts-final-mix/journal/menuBox";
+import JournalLoop from "@/app/kingdom-hearts-final-mix/journal/journalloop";
 import Link from "next/link";
-import NoteTextBox from "@/app/kingdom-hearts-1/journal/chronicles/notetextbox";
+import NoteTextBox from "@/app/kingdom-hearts-final-mix/journal/chronicles/notetextbox";
 import {useState} from "react";
 
 export default function Page() {
     const [pageNumber, setPageNumber] = useState(1);
-    const maxPageNumber = 4;
+    const maxPageNumber = 3;
     const textArray = [
-        ["The power of", "Kiari's heart was", "what saved Sora.", "The strong bond", "between them became", "a light that pulled", "him back from the", "darkness.", "Promising Kiari", "he would come back,", "Sora returned", "to Hollow Bastion to", "seal the final Keyhole", "and save Riku.", "", ""],
-        ["The Keyhole was sealed,", "but Ansem and Riku", "were nowhere to be", "found. Ansem had left", "to fulfill his final plan.", "Sora and company", "followed him to a world", "shrouded in darkness.", "Destroying Ansem", "could restore all the,", "worlds taken by the", "Heartless, but it", "would also mean", "those worlds being", "disconnected, as", "they once were."],
-        ["Once every world was", "isolated, divided", "from the others by", "impassable walls.", "The power of darkness", "demolished those walls.", "", "", "If the walls return,", "traveling to other", "worlds will no", "longer be possible.", "Sora may never see", "his friends again.", "", ""],
-        ["Still, he's resolved", "to fight his way into", "the very core of", "darkness, where", "Ansem lies in wait.", "He believes no matter", "how deep the darkness,", "a light shines within", "", "", "", "", "", "", "", ""]
+        ["After falling through", "a deep hole,", "Sora and company", "arrived in Wonderland", "and followed", "a white rabbit all", "the way to the Queen", "of Hearts' castle.", "There they witnessed", "a trial in which", "the unreasonable", "queen falsely", "accused Alice.", "", "", ""],
+        ["Angered by this", "injustice, Sora", "rushed in and", "challenged the", "queen. He and his", "friends found", "evidence proving", "Alice's innocence.", "But the queen simply", "accused them next,", "and ordered her card", "soldiers to seize them.", "", "", "", ""],
+        ["After fighting them", "off, Sora noticed", "that Alice had", "disappeared from her", "cage. While looking", "for her, he and his", "friends ran into", "the Trickmaster.", "They defeated", "the powerful monster,", "but Alice's", "whereabouts", "remained unknown.", "", "", ""]
     ];
 
     return (
@@ -25,7 +24,7 @@ export default function Page() {
                         <h2 className={styles.headerMenu}>Menu</h2>
                     </div>
                     <div className={styles.headerContainer}>
-                        <Link href={"/kingdom-hearts-1/journal"}>
+                        <Link href={"/journal"}>
                             <MenuBox text={"Journal"}></MenuBox>
                         </Link>
                         <h2 className={styles.titleText}>|| Chronicles</h2>
