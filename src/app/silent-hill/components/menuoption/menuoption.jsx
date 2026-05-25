@@ -1,6 +1,7 @@
 'use client'
 
 import styles from "./menuoption.module.css";
+import {useState} from "react";
 
 export default function MenuOption({ children, className, borders = true, color = "blue", text = "---", onClick, onMouseEnter, onMouseLeave }) {
     const colorOptions = {
@@ -21,7 +22,7 @@ export default function MenuOption({ children, className, borders = true, color 
                 </div>
             }
             {!borders &&
-                <div className={styles.submenu__option} style={colorOptions}>
+                <div className={styles.submenu__option} style={colorOptions} onClick={onClick}>
                     <h2>{text}</h2>
                 </div>
             }
