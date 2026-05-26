@@ -35,7 +35,9 @@ export default function PauseMenu() {
                 <div className={styles.top__row}>
                     <MenuOption text={"Status"}>
                         <div className={styles.status__container}>
+                            <div className={styles.status__health} />
                             <Image src={`${prefix}/images/image.svg`} alt={"Placeholder"} width={160} height={160} />
+                            <div className={styles.status__blur} />
                         </div>
                     </MenuOption>
                     <MenuOption text={"Equipment"}>
@@ -75,7 +77,7 @@ export default function PauseMenu() {
                             <div className={styles.arrow__left} />
                             <div className={styles.arrow__left} />
                         </div>
-                        <div className={styles.spinning__border}>
+                        <div className={styles.outer__border}>
                             <div className={styles.container}>
                                 <Image src={items.at(currIndex).src} style={{background: "white"}} alt={`${items.at(currIndex).name} model`} width={160} height={160} />
                             </div>

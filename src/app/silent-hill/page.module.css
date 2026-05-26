@@ -26,6 +26,84 @@
     justify-content: space-between;
 }
 
+.status__container {
+    position: relative;
+    overflow: hidden;
+    background: black;
+    height: 100%;
+    width: 100%;
+}
+
+@property --greenTopPos {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 45%;
+}
+
+@property --greenBotPos {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 65%;
+}
+
+@property --alphaPos {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+}
+
+.status__health {
+    position: absolute;
+    height: 34px;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, #09f009 var(--greenTopPos), #09f009 var(--greenBotPos), rgba(0, 0, 0, 0.6) var(--alphaPos));
+    top: 0;
+    animation: healthPulse 1.3s infinite ease-in-out;
+}
+
+@keyframes healthPulse {
+    0% {
+        --greenTopPos: 45%;
+        --greenBotPos: 65%;
+        --alphaPos: 100%;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        height: 70px;
+        opacity: 0.0;
+        --greenTopPos: 10%;
+        --greenBotPos: 50%;
+        --alphaPos: 100%;
+    }
+}
+
+@property --blurPos {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: -100%;
+}
+
+.status__blur {
+    position: absolute;
+    height: 48px;
+    width: 100%;
+    background: linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.6) 100%);
+    top: 0;
+    transform: translateY(var(--blurPos));
+    animation: blurSweep 3s infinite linear;
+}
+
+@keyframes blurSweep {
+    0% {
+        --blurPos: -100%;
+    }
+    100% {
+        --blurPos: 350%;
+    }
+}
+
 .equipment__container {
     display: flex;
     flex-direction: column;
@@ -46,12 +124,13 @@
     gap: 16px;
 }
 
-.spinning__border {
-    padding: 2px 1px;
+.outer__border {
+    padding: 2px 2px;
 }
 
-.spinning__border:hover {
-    border: 2px solid #a0a3ef;
+.outer__border:hover {
+    border: 3px solid;
+    border-image: linear-gradient(130deg, #a0a3ef 0%, #a0a3ef 25%, transparent 25%, transparent 75%, #a0a3ef 75%, #a0a3ef 100%) 1;
 }
 
 .container {
@@ -63,7 +142,7 @@
     padding: 6px 5px;
 }
 
-.spinning__border:hover .container {
+.outer__border:hover .container {
     cursor: pointer;
     border: #6b65c8 2px solid;
 }
