@@ -25,17 +25,22 @@ export default function PauseMenu() {
         { name: "Test 4", src: `${prefix}/images/menu_icon.svg`, commands: [""], description: "Test 4" },
     ];
 
+    const colors = ["green", "red"];
+    const [currColorIndex, setCurrColorIndex] = useState(0);
+    const healthOptions = {
+        '--dynamic-health': `var(--health-${colors[currColorIndex]})`,
+    }
+    const [equippedItem, setEquippedItem] = useState(items[0]);
     const totalItems = items.length;
     const [currIndex, setCurrIndex] = useState(0);
-    const [equippedItem, setEquippedItem] = useState(items.at(0));
 
     return(
         <div className={`${styles.page} ${libreBaskerville.className}`}>
             <div className={styles.main}>
                 <div className={styles.top__row}>
-                    <MenuOption text={"Status"}>
+                    <MenuOption text={"Status"} onClick={() => setCurrColorIndex((currColorIndex + 1) % colors.length)}>
                         <div className={styles.status__container}>
-                            <div className={styles.status__health} />
+                            <div className={styles.status__health} style={healthOptions} />
                             <Image src={`${prefix}/images/image.svg`} alt={"Placeholder"} width={160} height={160} />
                             <div className={styles.status__blur} />
                         </div>

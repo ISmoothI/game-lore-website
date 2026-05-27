@@ -14,7 +14,7 @@
 
 .outer__border:hover .menu__text {
     background: linear-gradient(rgba(0, 0, 0, var(--alphaPos)) 15%, rgba(255, 255, 255, var(--alphaPos)) 45%, rgba(255, 255, 255, var(--alphaPos)) 55%, rgba(0, 0, 0, var(--alphaPos)) 85%);
-    animation: whitePulse 3s infinite ease-in-out;
+    animation: whitePulse 2.7s infinite ease-in-out;
 }
 
 .container {

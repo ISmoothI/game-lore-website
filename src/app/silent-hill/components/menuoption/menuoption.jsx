@@ -12,7 +12,7 @@ export default function MenuOption({ children, className, borders = true, color 
     return (
         <>
             {borders &&
-                <div className={styles.outer__border}>
+                <div className={styles.outer__border} onClick={onClick}>
                     <div className={styles.container}>
                         <div className={styles.menu__option} style={colorOptions}>
                             <h2 className={styles.menu__text}>{text}</h2>
