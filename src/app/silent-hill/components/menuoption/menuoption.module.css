@@ -27,19 +27,14 @@
 }
 
 .menu__option {
-    --bg-blue: #0d84bd;
-    --border-blue: #C92A1A;
-
-    --bg-green: #0dc63c;
-    --border-red: #C92A1A;
-
-    --bg-purple: #8200bf;
-    --border-purple: #1A9900;
+    --difficulty-easy: #0dc63c;
+    --difficulty-normal: #0d84bd;
+    --difficulty-hard: #8200bf;
 
     justify-items: center;
     text-shadow: black 2px 1px 0;
     box-sizing: border-box;
-    background: linear-gradient(black 15%, var(--dynamic-bg) 45%, var(--dynamic-bg) 55%, black 85%);
+    background: linear-gradient(black 15%, var(--dynamic-difficulty) 45%, var(--dynamic-difficulty) 55%, black 85%);
     min-width: 180px;
 }
 

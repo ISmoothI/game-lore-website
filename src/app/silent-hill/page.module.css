@@ -57,6 +57,8 @@
 
 .status__health {
     --health-green: #09f009;
+    --health-lightgreen: #80e610;
+    --health-orange: #e48526;
     --health-red: #C92A1A;
 
     position: absolute;
@@ -234,6 +236,12 @@
 .item__header {
     display: flex;
     flex-direction: column;
+}
+
+.item__subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .item__description {

@@ -3,10 +3,9 @@
 import styles from "./menuoption.module.css";
 import {useState} from "react";
 
-export default function MenuOption({ children, className, borders = true, color = "blue", text = "---", onClick }) {
-    const colorOptions = {
-        '--dynamic-bg': `var(--bg-${color})`,
-        '--dynamic-border': `var(--border-${color})`,
+export default function MenuOption({ children, className, borders = true, mode = "normal", text = "---", onClick }) {
+    const difficultyOptions = {
+        '--dynamic-difficulty': `var(--difficulty-${mode})`,
     }
 
     return (
@@ -14,7 +13,7 @@ export default function MenuOption({ children, className, borders = true, color 
             {borders &&
                 <div className={styles.outer__border} onClick={onClick}>
                     <div className={styles.container}>
-                        <div className={styles.menu__option} style={colorOptions}>
+                        <div className={styles.menu__option} style={difficultyOptions}>
                             <h2 className={styles.menu__text}>{text}</h2>
                         </div>
                         {children}
@@ -22,7 +21,7 @@ export default function MenuOption({ children, className, borders = true, color 
                 </div>
             }
             {!borders &&
-                <div className={styles.submenu__option} style={colorOptions} onClick={onClick}>
+                <div className={styles.submenu__option} onClick={onClick}>
                     <h2>{text}</h2>
                 </div>
             }
