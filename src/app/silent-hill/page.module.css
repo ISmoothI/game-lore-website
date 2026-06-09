@@ -3,7 +3,7 @@
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 16px 48px;
+    padding: 16px 400px;
     background: black;
 }
 
@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /*flex-wrap: wrap;*/
 }
 
 .status__container {
@@ -35,6 +36,11 @@
     background: black;
     height: 100%;
     width: 100%;
+}
+
+.status__image {
+    width: 180px;
+    height: 180px;
 }
 
 @property --greenTopPos {
@@ -144,6 +150,7 @@
 .equipment__container {
     display: flex;
     flex-direction: column;
+    width: 100px;
 }
 
 .command__container {
@@ -162,7 +169,10 @@
 }
 
 .outer__border {
-    padding: 2px 2px;
+    position: absolute;
+    top: 20px;
+    left: 90px;
+    padding: 60px 60px;
 }
 
 .outer__border:hover {
@@ -170,16 +180,15 @@
     border-image: linear-gradient(130deg, #a0a3ef 0%, #a0a3ef 25%, transparent 25%, transparent 75%, #a0a3ef 75%, #a0a3ef 100%) 1;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 6px 5px;
+.inner__border {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    /*box-sizing: border-box;*/
+    padding: 56px 56px;
 }
 
-.outer__border:hover .container {
+.outer__border:hover .inner__border {
     cursor: pointer;
     border: #6b65c8 2px solid;
 }
@@ -197,7 +206,7 @@
     height: min-content;
     position: absolute;
     top: 70px;
-    right: 180px;
+    right: 230px;
 }
 
 .arrows__rightcontainer {
@@ -209,7 +218,7 @@
     height: min-content;
     position: absolute;
     top: 70px;
-    left: 180px;
+    left: 230px;
 }
 
 .arrow__left {
@@ -250,3 +259,71 @@
     box-sizing: border-box;
     padding: 24px;
 }
+
+@media (max-width: 1300px) {
+    .page {
+        padding: 16px 300px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .status__image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .equipment__container {
+        height: 120px;
+    }
+
+    .outer__border {
+        top: 20px;
+        left: 90px;
+    }
+
+}
+
+@media (max-width: 1040px) {
+    .page {
+        padding: 2px 200px;
+    }
+
+    .main h2 {
+        font-size: 16px;
+    }
+
+    .status__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .equipment__container {
+        height: 100px;
+    }
+
+}
+
+@media (max-width: 740px) {
+    .page {
+        padding: 2px 8px;
+    }
+
+    .main h2 {
+        font-size: 16px;
+    }
+
+    .status__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .equipment__container {
+        height: 100px;
+    }
+
+}
+
+
+
