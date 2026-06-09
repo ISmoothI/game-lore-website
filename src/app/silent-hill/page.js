@@ -3,13 +3,12 @@
 import Image from "next/image";
 
 import { Libre_Baskerville } from "next/font/google";
-import {Suspense, useEffect, useRef, useState} from "react";
+import {Suspense, useRef, useState} from "react";
 import MenuOption from "@/app/silent-hill/components/menuoption/menuoption";
 import {Canvas, useFrame} from "@react-three/fiber";
 
 import harryImage from "./assets/HarryMasonStatus.svg";
-import {Models} from "@/app/silent-hill/assets/models";
-import {prefix} from "@/lib/prefix";
+import {Models} from "./assets/models";
 import styles from "./page.module.css";
 
 const libreBaskerville = Libre_Baskerville({
