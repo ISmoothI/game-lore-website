@@ -5,5 +5,12 @@
     "title": "Kingdom Hearts Final Mix",
     "description": "An action playing game for the PlayStation 2.",
     "tags": ["2013", "PS3"]
+  },
+  {
+    "id": 2,
+    "url": "silent-hill",
+    "title": "Silent Hill",
+    "description": "A survival horror game for the PlayStation.",
+    "tags": ["1999", "PS1"]
   }
 ]

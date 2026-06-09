@@ -45,7 +45,7 @@ export default function Home() {
                         <Card className={styles.card__centered}>
                             <Image src={`${prefix}/images/checkmark.svg`} alt={"Checkmark"} width="100" height="70" />
                             <h3>Completed</h3>
-                            <h4>0</h4>
+                            <h4>2</h4>
                         </Card>
                         <Card className={styles.card__centered}>
                             <Image src={`${prefix}/images/exclamation.svg`} alt={"Exclamation"} width="100" height="70" />

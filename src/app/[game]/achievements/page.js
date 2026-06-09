@@ -2,18 +2,16 @@ import fs from "fs";
 import path from "path";
 
 import AchievementsPage from "@/app/[game]/achievements/achievements-page";
+import NoAchievementsPage from "./no-achievements-page";
 
 export async function generateStaticParams() {
-    const dataDir = path.join(process.cwd(), "public/data");
+    const filePath = path.join(process.cwd(), "public/data", "games.json");
+    const file = fs.readFileSync(filePath, "utf8");
+    const games = JSON.parse(file);
 
-    const games = fs.readdirSync(dataDir).filter((file) => {
-        const fullPath = path.join(dataDir, file);
-
-        return fs.statSync(fullPath).isDirectory();
-    });
-
-
-    return games.map((game) => ({ game }));
+    return games.map(game => ({
+        game: game.url,
+    }));
 }
 
 
@@ -21,6 +19,11 @@ export default async function AchievementsData({ params }) {
     const { game } = await params;
 
     const filePath = path.join(process.cwd(), "public/data", game, "trophies.json");
+    const fileExists = fs.existsSync(filePath);
+
+    if(!fileExists) {
+        return <NoAchievementsPage />;
+    }
 
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(fileContents);

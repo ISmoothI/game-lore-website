@@ -1,0 +1,103 @@
+.outer__border {
+    padding: 2px 2px;
+}
+
+.outer__border:hover {
+    border: 3px solid;
+    border-image: linear-gradient(130deg, #a0a3ef 0%, #a0a3ef 25%, transparent 25%, transparent 75%, #a0a3ef 75%, #a0a3ef 100%) 1;
+}
+
+.outer__border:hover .container {
+    cursor: pointer;
+    border: #6b65c8 3px solid;
+}
+
+.outer__border:hover .menu__text {
+    background: linear-gradient(rgba(0, 0, 0, var(--alphaPos)) 15%, rgba(255, 255, 255, var(--alphaPos)) 45%, rgba(255, 255, 255, var(--alphaPos)) 55%, rgba(0, 0, 0, var(--alphaPos)) 85%);
+    animation: whitePulse 2.7s infinite ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 6px 5px;
+}
+
+.menu__option {
+    --difficulty-easy: #0dc63c;
+    --difficulty-normal: #0d84bd;
+    --difficulty-hard: #8200bf;
+
+    justify-items: center;
+    text-shadow: black 2px 1px 0;
+    box-sizing: border-box;
+    background: linear-gradient(black 15%, var(--dynamic-difficulty) 45%, var(--dynamic-difficulty) 55%, black 85%);
+    min-width: 180px;
+}
+
+@property --alphaPos {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+
+.menu__text {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0%) 15%, rgba(255, 255, 255, 0%) 45%, rgba(255, 255, 255, 0%) 55%, rgba(0, 0, 0, 0%) 85%);
+    width: 100%;
+}
+
+@keyframes whitePulse {
+    0% {
+        --alphaPos: 0%;
+    }
+    50% {
+        --alphaPos: 100%;
+    }
+    100% {
+        --alphaPos: 0%;
+    }
+}
+
+.submenu__option {
+    justify-items: left;
+    box-sizing: border-box;
+    background: linear-gradient(#181818 15%, #323232 45%, #323232 55%, #181818 85%);
+    background-clip: text;
+    color: transparent;
+    min-width: 180px;
+    padding: 0 0 0 28px;
+}
+
+.submenu__option:hover {
+    color: white;
+    text-shadow: black 2px 1px 0;
+    background: linear-gradient(black 15%, #0dc63c 45%, #0dc63c 55%, black 85%);
+}
+
+@media (max-width: 1300px) {
+    .menu__option {
+        min-width: 140px;
+    }
+
+    .submenu__option {
+        min-width: 140px;
+        padding: 0 0 0 14px;
+    }
+
+}
+
+@media (max-width: 1045px) {
+    .menu__option {
+        min-width: 100px;
+    }
+
+    .submenu__option {
+        min-width: 100px;
+        padding: 0 0 0 14px;
+    }
+
+}

@@ -3,12 +3,9 @@
 import {useRef, useState} from "react";
 
 import Image from "next/image";
-import Link from "next/link";
-
-import Loading from "@/components/loading/loading";
 
 import styles from "./achievements-page.module.css";
-import {prefix} from "../../../lib/prefix";
+import {prefix} from "@/lib/prefix";
 
 export default function AchievementsPage({ data }) {
     const image = `${prefix}/images/image.svg`
