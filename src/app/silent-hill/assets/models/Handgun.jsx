@@ -1,9 +1,10 @@
 "use client";
 
 import { useGLTF } from '@react-three/drei'
+import {prefix} from "@/lib/prefix";
 
 export default function Handgun({props, position=[0, 0, 0]})  {
-    const { nodes, materials } = useGLTF('/assets/silent-hill/models/Handgun.glb')
+    const { nodes, materials } = useGLTF(`${prefix}/assets/silent-hill/models/Handgun.glb`)
     return (
         <group {...props} dispose={null}>
             <mesh
@@ -16,4 +17,4 @@ export default function Handgun({props, position=[0, 0, 0]})  {
     )
 }
 
-useGLTF.preload('/assets/silent-hill/models/Handgun.glb')
+useGLTF.preload(`${prefix}/assets/silent-hill/models/Handgun.glb`)

@@ -1,9 +1,10 @@
 "use client";
 
 import { useGLTF } from '@react-three/drei'
+import {prefix} from "@/lib/prefix";
 
 export default function KitchenKnife({props, position=[0, -3, 0]})  {
-    const { nodes, materials } = useGLTF('/assets/silent-hill/models/KitchenKnife.glb')
+    const { nodes, materials } = useGLTF(`${prefix}/assets/silent-hill/models/KitchenKnife.glb`)
     return (
         <group {...props} dispose={null}>
             <mesh
@@ -17,4 +18,4 @@ export default function KitchenKnife({props, position=[0, -3, 0]})  {
     )
 }
 
-useGLTF.preload('/assets/silent-hill/models/KitchenKnife.glb')
+useGLTF.preload(`${prefix}/assets/silent-hill/models/KitchenKnife.glb`)
