@@ -1,0 +1,156 @@
+.page {
+    /*font-family: var(--font-urbanist);*/
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    /*padding: 16px 40px;*/
+    background: #003c60;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100vh;*/
+    width: 100%;
+    color: #00449d;
+    clip-path: ellipse(70% 110% at bottom left);
+    background: linear-gradient(to right, #fec54c 0%, #fec54c 3.6%, #2494fd 3.6%, #2494fd 100%);
+    padding: 16px 40px;
+}
+
+.main h1 {
+    color: #fec54c;
+    font-size: 50px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.main h3 {
+    font-size: 26px;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 0 6px;
+    width: fit-content;
+}
+
+.header__time {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__date {
+    display: flex;
+    flex-direction: row;
+}
+
+.menuoptions {
+    box-sizing: border-box;
+    padding: 2px 0 24px;
+}
+
+.menuoption {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.menuoption:hover {
+    background: #06365c;
+}
+
+.menuoption:hover, .menuoption__point:hover {
+    color: #fec54c;
+}
+
+.menuoption__text:hover {
+    color: #fff;
+}
+
+.status__section {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 20px;
+    gap: 24px;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #65b4fa;
+    padding: 10px 20px;
+    width: fit-content;
+}
+
+.levelname {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    gap: 16px;
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.health {
+    display: flex;
+    flex-direction: row;
+}
+
+.health__input {
+    color: #00449d;
+    background: transparent;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 26px;
+    font-weight: 700;
+    width: 40px;
+    justify-items: end;
+}
+
+.healthbar__base {
+    background: black;
+    align-self: center;
+    border-radius: 16px;
+    width: 100px;
+    height: 10px;
+}
+
+.healthbar__fill {
+    background: linear-gradient(to right, #fec54c, #fcc194);
+    align-self: center;
+    margin: 2px 4px;
+    width: 90px;
+    height: 6px;
+}
+
+.persona {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #65b4fa;
+    padding: 10px;
+    width: fit-content;
+}
+
+.arcana {
+    display: flex;
+    flex-direction: row;
+}
+
+.money {
+    display: flex;
+    flex-direction: row;
+}
