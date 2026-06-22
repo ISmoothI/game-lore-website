@@ -11,6 +11,8 @@ const tirra = Tirra({
 });
 
 export default function MainMenu() {
+    const timeOptions = ["Daytime", "Afternoon", "Evening", "Nighttime", "Dark Hour"];
+
     const menuOptions = {
         SKILL: "Use skills.",
         ITEM: "",
@@ -21,6 +23,7 @@ export default function MainMenu() {
         SYSTEM: "",
     };
 
+    const [currTimeIndex, setCurrTimeIndex] = useState(0);
     const [hoveredOption, setHoveredOption] = useState(null);
 
     return (
@@ -28,13 +31,17 @@ export default function MainMenu() {
             <div className={`${styles.page} ${tirra.className}`}>
                 <div className={styles.main}>
                     <div className={styles.header}>
-                        <h1>COMMAND</h1>
+                        <h2>COMMAND</h2>
                         <div className={styles.header__time}>
-                            <h3>Dark Hour</h3>
+                            <div className={styles.time} onClick={() => setCurrTimeIndex((currTimeIndex + 1) % timeOptions.length)}>
+                                <h3 className={styles.time__text}>{timeOptions[currTimeIndex]}</h3>
+                            </div>
                             <div className={styles.header__date}>
-                                <h3>8/22</h3>
-                                <h3>*</h3>
-                                <h3>M</h3>
+                                <h3 className={styles.date__number}>8</h3>
+                                <h3 className={styles.date__day}>/</h3>
+                                <h3 className={styles.date__number}>22</h3>
+                                <h3 className={styles.date__day}>*</h3>
+                                <h3 className={styles.date__day}>M</h3>
                             </div>
                         </div>
                     </div>
@@ -42,7 +49,7 @@ export default function MainMenu() {
                         {Object.keys(menuOptions).map(key => {
                             return (
                                 <div key={key} className={styles.menuoption} onMouseEnter={() => setHoveredOption(key)} onMouseLeave={() => setHoveredOption(null)}>
-                                    <h3 className={styles.menuoption__point}>*</h3>
+                                    <div className={styles.menuoption__point}/>
                                     <h3 className={styles.menuoption__text}>{key}</h3>
                                 </div>
                             );
@@ -56,15 +63,27 @@ export default function MainMenu() {
                                     <h3>1</h3>
                                 </div>
                                 <h3>Makoto Yuki</h3>
+                                <div className={styles.levelname__underline}/>
                             </div>
                             <div className={styles.health}>
                                 <h3>HP</h3>
-                                <input className={styles.health__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
                                 <h3>/</h3>
-                                <input className={styles.health__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
-                                <div className={styles.healthbar__base}>
+                                <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                <div className={styles.pointcontainer__base}>
                                     <div className={styles.healthbar__fill} />
                                 </div>
+                                <div className={styles.health__underline}/>
+                            </div>
+                            <div className={styles.spirit}>
+                                <h3>SP</h3>
+                                <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                <h3>/</h3>
+                                <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                <div className={styles.pointcontainer__base}>
+                                    <div className={styles.spirit__fill} />
+                                </div>
+                                <div className={styles.spirit__underline}/>
                             </div>
                         </div>
                         <div className={styles.persona}>
@@ -78,14 +97,25 @@ export default function MainMenu() {
                                 <h3>ARCANA</h3>
                                 <h3>*</h3>
                             </div>
+                            <div className={styles.persona__underline}/>
+                            <div className={styles.arcana__underline}/>
                         </div>
                     </div>
-                    <div className={styles.money}>
-                        <h3>000,000</h3>
-                        <h3>yen</h3>
-                    </div>
-                    <div className={styles.menuoption__description}>
-                        <h3>{menuOptions[hoveredOption]}</h3>
+                    <div className={styles.footer}>
+                        <div className={styles.money}>
+                            <div className={styles.menuoption__point}/>
+                            <div className={styles.money__amount}>
+                                <h3>000.000</h3>
+                                <h3>Yen</h3>
+                            </div>
+                            <div className={styles.money__underline}/>
+                        </div>
+                        <div className={styles.menuoption__description}>
+                            {hoveredOption !== null &&
+                                <div className={styles.menuoption__point}/>
+                            }
+                            <h3>{menuOptions[hoveredOption]}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
