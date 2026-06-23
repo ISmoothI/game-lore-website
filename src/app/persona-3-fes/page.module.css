@@ -13,15 +13,19 @@
     /*min-height: 100vh;*/
     width: 100%;
     color: #00449d;
-    clip-path: ellipse(70% 110% at bottom left);
-    background: linear-gradient(to right, #fec54c 0%, #fec54c 3.6%, #2494fd 3.6%, #2494fd 100%);
+    background-image:
+        linear-gradient(to right, #fec54c 0%, #fec54c 3.6%, transparent 3.6%, transparent 100%),
+        radial-gradient(120% 190% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 100%);
+    /*clip-path: ellipse(70% 110% at bottom left);*/
+    /*background: linear-gradient(to right, #fec54c 0%, #fec54c 3.6%, #2494fd 3.6%, #2494fd 100%);*/
     padding: 16px 0;
 }
 
 .main h1 {
-    color: #fec54c;
-    font-size: 100px;
+    color: #21cdfd;
+    font-size: 160px;
     font-weight: 900;
+    font-style: italic;
     margin: 0;
 }
 
@@ -34,11 +38,38 @@
 
 .main h3 {
     font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.main h4 {
+    font-size: 26px;
+    font-weight: 800;
+    font-style: italic;
     margin: 0;
 }
 
 .content {
+    position: relative;
+    overflow: hidden;
+}
 
+.menu__text {
+    position: absolute;
+    rotate: 270deg;
+    top: 160px;
+    right: -186px;
+    opacity: 0.8;
+    animation: loop 10s linear infinite;
+}
+
+@keyframes loop {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .header {
@@ -47,6 +78,7 @@
     box-sizing: border-box;
     width: fit-content;
     padding: 0 50px;
+    gap: 16px;
 }
 
 .header__time {
@@ -65,6 +97,16 @@
 .header__date {
     display: flex;
     flex-direction: row;
+    gap: 6px;
+}
+
+.dot {
+    box-sizing: border-box;
+    align-self: center;
+    width: 6px;
+    height: 6px;
+    background: #426679;
+    border-radius: 16px;
 }
 
 .date__number {
@@ -77,24 +119,24 @@
 
 .menuoptions {
     box-sizing: border-box;
-    padding: 2px 16px 24px;
+    padding: 2px 0px 24px;
 }
 
 .menuoption {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    padding: 0 10px;
+    padding: 0 10px 0 26px;
     width: 200px;
     gap: 20px;
 }
 
 .menuoption__point {
-    width: 16px;
-    height: 16px;
     box-sizing: border-box;
     background: #06365c;
     align-self: center;
+    width: 16px;
+    height: 16px;
 }
 
 .menuoption:hover {
@@ -125,6 +167,7 @@
     box-sizing: border-box;
     border-radius: 4px;
     background: #65b4fa;
+    font-style: italic;
     padding: 10px 6px;
     width: 400px;
 }
@@ -225,8 +268,9 @@
     border: none;
     outline: none;
     font-size: 26px;
-    font-weight: 700;
-    width: 40px;
+    font-weight: 800;
+    /*font-style: italic;*/
+    width: 60px;
     justify-items: end;
 }
 
@@ -275,11 +319,20 @@
     z-index: 1;
 }
 
+.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background: #0a7ed7;
+    align-self: center;
+}
+
 .arcana {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 16px;
     z-index: 1;
 }
 
