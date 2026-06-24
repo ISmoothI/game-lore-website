@@ -1,7 +1,10 @@
 'use client'
 
+import Image from "next/image";
+
 import {Inter} from "next/font/google";
 import {useState} from "react";
+import statusImage from "./assets/images/placeholderimage.svg";
 
 import styles from './page.module.css';
 
@@ -12,21 +15,26 @@ const inter = Inter({
 
 export default function MainMenu() {
     const timeOptions = ["Daytime", "Afternoon", "Evening", "Nighttime", "Dark Hour"];
+    const dayOptions = ["M", "T", "W", "Th", "F", "Sa", "Su"];
     const menuOptions = {
-        SKILL: "Use skills.",
-        ITEM: "",
+        SKILL: "Use/view skills.",
+        ITEM: "Use/view items.",
         PERSONA: "",
         EQUIP: "",
         STATUS: "",
         "S.LINK": "",
         SYSTEM: "",
     };
+    const feelingOptions = ["Great", "Good", "Tired", "Sick"];
     const personaOptions = {
         Orpheus: "Fool",
         Thanatos: "Death",
     };
 
     const [currTimeIndex, setCurrTimeIndex] = useState(0);
+    const [currDayIndex, setCurrDayIndex] = useState(0);
+    const [currFeelingIndex, setCurrFeelingIndex] = useState(0);
+    const [currPersonaIndex, setCurrPersonaIndex] = useState(0);
     const [hoveredOption, setHoveredOption] = useState(null);
 
     return (
@@ -34,7 +42,9 @@ export default function MainMenu() {
             <div className={`${styles.page} ${inter.className}`}>
                 <div className={styles.main}>
                     <div className={styles.content}>
-                        <h1 className={styles.menu__text}>MENU</h1>
+                        {/*<Image className={styles.character__image} src={statusImage} alt={"Makoto Yuki image"} width={400} height={400} />*/}
+                        <h1 className={styles.menu__text}>MAIN</h1>
+                        {/*<Image className={styles.persona__image} src={statusImage} alt={`${Object.keys(personaOptions)[currPersonaIndex]} image icon`} width={400} height={400} />*/}
                         <div className={styles.header}>
                             <h2>COMMAND</h2>
                             <div className={styles.header__time}>
@@ -46,7 +56,7 @@ export default function MainMenu() {
                                     <h3 className={styles.date__day}>/</h3>
                                     <h3 className={styles.date__number}>22</h3>
                                     <div className={styles.dot}/>
-                                    <h3 className={styles.date__day}>M</h3>
+                                    <h3 className={styles.date__day} onClick={() => setCurrDayIndex((currDayIndex + 1) % dayOptions.length)}>{dayOptions[currDayIndex]}</h3>
                                 </div>
                             </div>
                         </div>
@@ -65,41 +75,47 @@ export default function MainMenu() {
                                 <div className={styles.levelname}>
                                     <div className={styles.level}>
                                         <h4>PLv</h4>
-                                        <h4>1</h4>
+                                        <input className={styles.level__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={10} size={2} title={"Click to change the level of the character."}/>
                                     </div>
                                     <h3 style={{fontStyle: "initial", fontWeight: "500"}}>Makoto Yuki</h3>
                                     <div className={styles.levelname__underline}/>
                                 </div>
                                 <div className={styles.health}>
-                                    <h4>HP</h4>
-                                    <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                    <h4 style={{boxSizing: "border-box", padding: "0 4px"}}>HP</h4>
+                                    <input className={styles.point__leftinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
                                     <h4>/</h4>
-                                    <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
+                                    <input className={styles.point__rightinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the health points of the character."}/>
                                     <div className={styles.pointcontainer__base}>
                                         <div className={styles.healthbar__fill} />
                                     </div>
                                     <div className={styles.health__underline}/>
                                 </div>
                                 <div className={styles.spirit}>
-                                    <h4>SP</h4>
-                                    <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the spirit points of the character."}/>
+                                    <h4 style={{boxSizing: "border-box", padding: "0 4px"}}>SP</h4>
+                                    <input className={styles.point__leftinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the spirit points of the character."}/>
                                     <h4>/</h4>
-                                    <input className={styles.point__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the spirit points of the character."}/>
+                                    <input className={styles.point__rightinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={18} size={3} title={"Click to change the spirit points of the character."}/>
                                     <div className={styles.pointcontainer__base}>
                                         <div className={styles.spirit__fill} />
                                     </div>
                                     <div className={styles.spirit__underline}/>
                                 </div>
                             </div>
+                            <div className={styles.feeling} onClick={() => setCurrFeelingIndex((currFeelingIndex + 1) % feelingOptions.length)}>
+                                <h3>{feelingOptions[currFeelingIndex]}</h3>
+                                <Image className={styles.feeling__image} src={statusImage} alt={`${feelingOptions[currFeelingIndex]} image icon`} />
+                            </div>
                             <div className={styles.persona}>
                                 <div className={styles.levelname}>
-                                    <h4>Lv</h4>
-                                    <h4>1</h4>
-                                    <h3>Orpheus</h3>
+                                    <div className={styles.level}>
+                                        <h4>Lv</h4>
+                                        <input className={styles.level__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={10} size={2} title={"Click to change the level of the persona."}/>
+                                    </div>
+                                    <h3>{Object.keys(personaOptions)[currPersonaIndex]}</h3>
                                 </div>
                                 <div className={styles.arcana}>
                                     <div className={styles.circle}/>
-                                    <h3>ARCANA</h3>
+                                    <h3>{Object.values(personaOptions)[currPersonaIndex]}</h3>
                                     <div className={styles.circle}/>
                                 </div>
                                 <div className={styles.persona__underline}/>
@@ -110,7 +126,7 @@ export default function MainMenu() {
                             <div className={styles.money}>
                                 <div className={styles.menuoption__point}/>
                                 <div className={styles.money__amount}>
-                                    <h4>000.000</h4>
+                                    <input className={styles.money__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{7}"} maxLength={7} defaultValue={"0000000"} size={7} title={"Click to change the money of the character."}/>
                                     <h3>Yen</h3>
                                 </div>
                                 <div className={styles.money__underline}/>
