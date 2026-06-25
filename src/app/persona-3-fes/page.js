@@ -43,7 +43,12 @@ export default function MainMenu() {
                 <div className={styles.main}>
                     <div className={styles.content}>
                         {/*<Image className={styles.character__image} src={statusImage} alt={"Makoto Yuki image"} width={400} height={400} />*/}
-                        <h1 className={styles.menu__text}>MAIN</h1>
+                        <div className={styles.menu__textcontainer}>
+                            <div className={styles.menu__textcontent}>
+                                <h1 className={styles.menu__text}>MAIN</h1>
+                                <h1 className={styles.menu__text} aria-hidden={true}>MAIN</h1>
+                            </div>
+                        </div>
                         {/*<Image className={styles.persona__image} src={statusImage} alt={`${Object.keys(personaOptions)[currPersonaIndex]} image icon`} width={400} height={400} />*/}
                         <div className={styles.header}>
                             <h2>COMMAND</h2>
@@ -132,10 +137,8 @@ export default function MainMenu() {
                                 <div className={styles.money__underline}/>
                             </div>
                             <div className={styles.menuoption__description}>
-                                {hoveredOption !== null &&
-                                    <div className={styles.menuoption__point}/>
-                                }
-                                <h3>{menuOptions[hoveredOption]}</h3>
+                                <div className={styles.menuoption__point}/>
+                                <h3>{menuOptions[hoveredOption] || "."}</h3>
                             </div>
                         </div>
                     </div>
