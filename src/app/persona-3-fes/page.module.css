@@ -16,7 +16,7 @@
     background-image:
         linear-gradient(to right, #fec54c 0px, #fec54c 53px, transparent 53px, transparent 100%),
         radial-gradient(120% 220% at bottom left, #0e8aea 0%, #0e8aea 50%, #00293f 50%, #00293f 100%);
-    padding: 8px 0;
+    /*padding: 8px 0;*/
     /*background-size: 1920px 1080px;*/
 }
 
@@ -59,7 +59,7 @@
     top: 0px;
     right: -540px;
     height: 730px;
-    z-index: 10;
+    z-index: 0;
 }
 
 .menu__textcontent {
@@ -80,14 +80,18 @@
 
 .character__image {
     position: absolute;
-    top: 60px;
-    right: 0;
+    width: 600px;
+    height: 600px;
+    right: -150px;
+    bottom: 0px;
 }
 
 .persona__image {
     position: absolute;
-    top: 100px;
-    right: 400px;
+    width: 600px;
+    height: 600px;
+    right: 100px;
+    bottom: 0px;
 }
 
 @keyframes loop {
@@ -108,9 +112,14 @@
     gap: 16px;
 }
 
+.command {
+    z-index: 1;
+}
+
 .header__time {
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .time {
@@ -128,16 +137,41 @@
 }
 
 .dot {
+    background: #426679;
     box-sizing: border-box;
     align-self: center;
+    border-radius: 16px;
     width: 6px;
     height: 6px;
-    background: #426679;
-    border-radius: 16px;
+    margin: 0 4px 0 0;
 }
 
-.date__number {
+.date__inputone {
     color: #7797a3;
+    background: transparent;
+    font: inherit;
+    border: none;
+    outline: none;
+    justify-items: end;
+    font-size: 30px;
+    font-weight: 800;
+    width: 40px;
+}
+
+.date__inputtwo {
+    color: #7797a3;
+    background: transparent;
+    font: inherit;
+    border: none;
+    outline: none;
+    justify-items: start;
+    font-size: 30px;
+    font-weight: 800;
+    width: 40px;
+}
+
+.date__divider {
+    color: #426679;
 }
 
 .date__day {
@@ -167,6 +201,10 @@
     align-self: center;
     width: 20px;
     height: 20px;
+}
+
+.menuoption__text {
+    z-index: 1;
 }
 
 .menuoption:hover {
@@ -276,12 +314,22 @@
     /*box-shadow: inset 0 -12px 0 0 #6fd0fb;*/
 }
 
+.character__name {
+    font-style: initial;
+    font-weight: 500;
+}
+
 .level {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
     padding: 0 6px;
     gap: 12px;
+}
+
+.status__title {
+    box-sizing: border-box;
+    padding: 0 4px;
 }
 
 .health {
@@ -300,11 +348,11 @@
     font: inherit;
     border: none;
     outline: none;
+    justify-items: end;
     font-size: 30px;
     font-weight: 800;
     font-style: italic;
     width: 40px;
-    justify-items: end;
 }
 
 .point__leftinput {
@@ -364,7 +412,7 @@
     background: black;
     align-self: center;
     border-radius: 16px;
-    width: 100px;
+    width: 100%;
     height: 14px;
 }
 
@@ -372,7 +420,7 @@
     background: linear-gradient(to right, #fec54c, #fcc194);
     align-self: center;
     margin: 2.5px 4.5px;
-    width: 90px;
+    /*width: 90px;*/
     height: 8px;
 }
 
@@ -380,24 +428,32 @@
     background: linear-gradient(to right, #8e6cfd, #b8a5fc);
     align-self: center;
     margin: 2.5px 4.5px;
-    width: 90px;
+    /*width: 90px;*/
     height: 8px;
 }
 
-.feeling {
+.condition {
     cursor: pointer;
     position: relative;
     display: flex;
     flex-direction: row;
+    align-self: flex-end;
     box-sizing: border-box;
     justify-content: end;
+    width: min-content;
     padding: 0 24px 10px 0;
 }
 
-.feeling__image {
+.condition__text {
+    text-shadow: -1px -1px 0 #0e89e8;
+}
+
+.condition__image {
     position: absolute;
+    width: 50px;
+    height: 50px;
     top: -20px;
-    right: -15px;
+    right: -28px;
 }
 
 .persona {
@@ -411,6 +467,10 @@
     padding: 10px 10px;
     width: 400px;
     z-index: 1;
+}
+
+.persona__name {
+    cursor: pointer;
 }
 
 .circle {
@@ -462,11 +522,14 @@
 }
 
 .menuoption__description {
+    background: #0e89e8;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
     padding: 0 10px;
+    width: fit-content;
     gap: 10px;
+    z-index: 2;
 }
 
 @media (max-width: 1280px) {
@@ -523,16 +586,39 @@
 
     .main {
         background-image:
-                linear-gradient(to right, #fec54c 0px, #fec54c 30px, transparent 30px, transparent 100%),
+                linear-gradient(to right, #fec54c 0px, #fec54c 40px, transparent 40px, transparent 100%),
                 radial-gradient(110% 190% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 100%);
     }
+
+    .character__image {
+        width: 500px;
+        height: 500px;
+        right: -124px;
+    }
+
+    .persona__image {
+        width: 500px;
+        height: 500px;
+    }
+
 }
 
 @media (max-width: 699px) {
     .main {
         background-image:
-                linear-gradient(to right, #fec54c 0px, #fec54c 30px, transparent 30px, transparent 100%),
+                linear-gradient(to right, #fec54c 0px, #fec54c 40px, transparent 40px, transparent 100%),
                 radial-gradient(150% 180% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 100%);
+    }
+
+    .character__image {
+        width: 450px;
+        height: 450px;
+        right: -124px;
+    }
+
+    .persona__image {
+        width: 450px;
+        height: 450px;
     }
 }
 
@@ -544,7 +630,7 @@
     .main {
         background-image:
                 linear-gradient(to right, #fec54c 0px, #fec54c 30px, transparent 30px, transparent 100%),
-                radial-gradient(150% 174% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 100%);
+                radial-gradient(155% 174% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 100%);
     }
 
     .main h1 {
@@ -583,8 +669,28 @@
         }
     }
 
+    .character__image {
+        width: 400px;
+        height: 400px;
+        right: -100px;
+        /*bottom: 0px;*/
+    }
+
+    .persona__image {
+        width: 400px;
+        height: 400px;
+        top: 60px;
+        right: -40px;
+    }
+
     .header {
         padding-left: 28px;
+        gap: 10px;
+    }
+
+    .date__inputone, .date__inputtwo {
+        font-size: 20px;
+        width: 24px;
     }
 
     .menuoption {
@@ -603,7 +709,8 @@
     }
 
     .status {
-        width: min-content;
+        /*width: min-content;*/
+        width: 300px;
     }
 
     .levelname__underline {
@@ -639,8 +746,11 @@
         width: 100px;
     }
 
-    .feeling__image {
+    .condition__image {
         top: -16px;
+        right: -16px;
+        width: 40px;
+        height: 40px;
     }
 
     .persona {
