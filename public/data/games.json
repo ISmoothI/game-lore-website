@@ -12,5 +12,12 @@
     "title": "Silent Hill",
     "description": "A survival horror game for the PlayStation.",
     "tags": ["1999", "PS1"]
+  },
+  {
+    "id": 3,
+    "url": "persona-3-fes",
+    "title": "Persona 3 FES",
+    "description": "A role-playing game for the PlayStation 2.",
+    "tags": ["2006", "PS2"]
   }
 ]
