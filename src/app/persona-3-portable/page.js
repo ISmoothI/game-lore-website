@@ -10,7 +10,9 @@ import goodIcon from "./assets/images/icon_good.svg";
 import tiredIcon from "./assets/images/icon_tired.svg";
 import sickIcon from "./assets/images/icon_sick.svg";
 import orpheusImage from "./assets/images/persona_orpheus.svg";
+import orpheusFemImage from "./assets/images/persona_orpheus_f.svg";
 import makotoImage from "./assets/images/character_makoto.svg";
+import kotoneImage from "./assets/images/character_kotone.svg";
 
 import styles from './page.module.css';
 
@@ -20,6 +22,7 @@ const inter = Inter({
 });
 
 export default function MainMenu() {
+    const [protagName, setProtagName] = useState("Makoto Yuki");
     const [colorScheme, setColorScheme] = useState("blue");
     const colorOptions = {
         '--scrolling-text': `var(--scrolling-${colorScheme}-text)`,
@@ -33,13 +36,13 @@ export default function MainMenu() {
     const timeOptions = ["Before Dawn", "Early Morning", "Morning", "Daytime", "Lunchtime", "Afternoon", "After School", "Evening", "Nighttime", "Late Night", "Dark Hour"];
     const dayOptions = ["M", "T", "W", "Th", "F", "Sa", "Su"];
     const menuOptions = {
-        "SKILL": "Use/view skills.",
-        "ITEM": "Use/view items.",
-        "PERSONA": "Change/view Personas.",
-        "EQUIP": "Change/view equipment.",
-        "STATUS": "View detailed status",
-        "S.LINK": "View Social Link details.",
-        "SYSTEM": "Info/Config.",
+        "SKILL": "Use skills",
+        "ITEM": "Use items",
+        "PERSONA": "View and manage Personas",
+        "EQUIP": "Change equipment",
+        "STATUS": "Check detailed status",
+        "S.LINK": "View Social Link details",
+        "SYSTEM": "Adjust various settings",
     };
     const conditionOptions = {
         Great: greatIcon,
@@ -52,7 +55,10 @@ export default function MainMenu() {
             arcana: "Fool",
             src: orpheusImage
         },
-        // Thanatos: "Death",
+        "Orpheus ": {
+            arcana: "Fool",
+            src: orpheusFemImage
+        }
     };
     const totalConditionAmount = Object.entries(conditionOptions).length;
     const totalPersonaAmount = Object.entries(personaOptions).length;
@@ -74,11 +80,15 @@ export default function MainMenu() {
     }
 
     const changeColor = () => {
+        setCurrPersonaIndex((currPersonaIndex + 1) % totalPersonaAmount);
+
         if(colorScheme === "blue") {
             setColorScheme("red");
+            setProtagName("Kotone Shiomi");
         }
         else {
             setColorScheme("blue");
+            setProtagName("Makoto Yuki");
         }
     }
 
@@ -88,7 +98,12 @@ export default function MainMenu() {
                 <div className={styles.main}>
                     <div className={styles.content}>
                         <Image className={styles.persona__image} src={Object.values(personaOptions)[currPersonaIndex].src} alt={`${Object.keys(personaOptions)[currPersonaIndex]} image icon`} />
-                        <Image className={styles.character__image} src={makotoImage} alt={"Makoto Yuki image"} />
+                        {colorScheme === "blue" &&
+                            <Image className={styles.character__image} src={makotoImage} alt={"Makoto Yuki image"} />
+                        }
+                        {colorScheme === "red" &&
+                            <Image className={styles.character__image} src={kotoneImage} alt={"Kotone Shiomi image"} />
+                        }
                         <div className={styles.menu__textcontainer}>
                             <div className={styles.menu__textcontent}>
                                 <h1 className={styles.menu__text}>MAIN</h1>
@@ -120,15 +135,15 @@ export default function MainMenu() {
                                 );
                             })}
                         </div>
-                        <button onClick={() => changeColor()}>Protag</button>
                         <div className={styles.status__section}>
+                            <button className={styles.protag__button} onClick={() => changeColor()}>Change Protagonist</button>
                             <div className={styles.status}>
                                 <div className={styles.levelname}>
                                     <div className={styles.level}>
                                         <h4>PLV</h4>
                                         <input className={styles.level__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={10} size={2} title={"Click to change the level of the character."}/>
                                     </div>
-                                    <h3 className={styles.character__name}>Makoto Yuki</h3>
+                                    <h3 className={styles.character__name}>{protagName}</h3>
                                     <div className={styles.levelname__underline}/>
                                 </div>
                                 <div className={styles.health}>
@@ -162,7 +177,7 @@ export default function MainMenu() {
                                         <h4>LV</h4>
                                         <input className={styles.level__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={10} size={2} title={"Click to change the level of the persona."}/>
                                     </div>
-                                    <h3 className={styles.persona__name} onClick={() => setCurrPersonaIndex((currPersonaIndex + 1) % totalPersonaAmount)}>{Object.keys(personaOptions)[currPersonaIndex]}</h3>
+                                    <h3 className={styles.persona__name}>{Object.keys(personaOptions)[currPersonaIndex]}</h3>
                                 </div>
                                 <div className={styles.arcana}>
                                     <div className={styles.circle}/>

@@ -129,13 +129,13 @@
 }
 
 .command {
-    z-index: 1;
+    z-index: 0;
 }
 
 .header__time {
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 0;
 }
 
 .time {
@@ -233,6 +233,15 @@
 
 .menuoption:hover .menuoption__text {
     color: #fff;
+}
+
+.protag__button {
+    cursor: pointer;
+    z-index: 1;
+    /*border: none;*/
+    border-radius: 8px;
+    color: var(--mid-bg);
+    background: var(--box);
 }
 
 .status__section {
@@ -547,7 +556,7 @@
     .main {
         background-image:
                 linear-gradient(to right, #fec54c 0px, #fec54c 40px, transparent 40px, transparent 100%),
-                radial-gradient(110% 170% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 75%, #0f2636 75%, #0f2636 100%);
+                radial-gradient(110% 170% at bottom left, var(--light-bg) 0%, var(--light-bg) 60%, var(--mid-bg) 60%, var(--mid-bg) 75%, var(--dark-bg) 75%, var(--dark-bg) 100%);
     }
 
     .main h1 {
@@ -594,7 +603,7 @@
     .main {
         background-image:
                 linear-gradient(to right, #fec54c 0px, #fec54c 40px, transparent 40px, transparent 100%),
-                radial-gradient(110% 190% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 75%, #0f2636 75%, #0f2636 100%);
+                radial-gradient(110% 190% at bottom left, var(--light-bg) 0%, var(--light-bg) 60%, var(--mid-bg) 60%, var(--mid-bg) 75%, var(--dark-bg) 75%, var(--dark-bg) 100%);
     }
 
     .character__image {
@@ -614,7 +623,7 @@
     .main {
         background-image:
                 linear-gradient(to right, #fec54c 0px, #fec54c 40px, transparent 40px, transparent 100%),
-                radial-gradient(150% 180% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 75%, #0f2636 75%, #0f2636 100%);
+                radial-gradient(150% 180% at bottom left, var(--light-bg) 0%, var(--light-bg) 60%, var(--mid-bg) 60%, var(--mid-bg) 75%, var(--dark-bg) 75%, var(--dark-bg) 100%);
     }
 
     .character__image {
@@ -637,7 +646,7 @@
     .main {
         background-image:
                 linear-gradient(to right, #fec54c 0px, #fec54c 30px, transparent 30px, transparent 100%),
-                radial-gradient(155% 174% at bottom left, #0e8aea 0%, #0e8aea 60%, #00293f 60%, #00293f 75%, #0f2636 75%, #0f2636 100%);
+                radial-gradient(155% 174% at bottom left, var(--light-bg) 0%, var(--light-bg) 60%, var(--mid-bg) 60%, var(--mid-bg) 75%, var(--dark-bg) 75%, var(--dark-bg) 100%);
     }
 
     .main h1 {

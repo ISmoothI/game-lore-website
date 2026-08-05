@@ -113,13 +113,13 @@
 }
 
 .command {
-    z-index: 1;
+    z-index: 0;
 }
 
 .header__time {
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 0;
 }
 
 .time {
