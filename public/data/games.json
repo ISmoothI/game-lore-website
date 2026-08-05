@@ -19,5 +19,12 @@
     "title": "Persona 3 FES",
     "description": "A role-playing game for the PlayStation 2.",
     "tags": ["2006", "PS2"]
+  },
+  {
+    "id": 4,
+    "url": "persona-3-portable",
+    "title": "Persona 3 Portable",
+    "description": "A role-playing game for the PlayStation Portable.",
+    "tags": ["2009", "PSP"]
   }
 ]
