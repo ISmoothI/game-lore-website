@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 
+import {useState} from "react";
 import {Archivo} from "next/font/google";
 
 import styles from './page.module.css';
@@ -26,14 +27,17 @@ export default function MainMenu() {
     };
 
     const characters = [
-            {"id": 1, "name": "Shulk", "skills": ["", "",""]},
-            {"id": 2, "name": "Reyn", "skills": ["", "",""]},
-            {"id": 3, "name": "Fiora", "skills": ["", "",""]},
-            {"id": 4, "name": "Sharla", "skills": ["", "",""]},
-            {"id": 5, "name": "Dunban", "skills": ["", "",""]},
-            {"id": 6, "name": "Riki", "skills": ["", "",""]},
-            {"id": 7, "name": "Melia", "skills": ["", "",""]},
+        {"id": 1, "name": "Shulk", "skills": ["", "",""]},
+        {"id": 2, "name": "Reyn", "skills": ["", "",""]},
+        {"id": 3, "name": "Fiora", "skills": ["", "",""]},
+        {"id": 4, "name": "Sharla", "skills": ["", "",""]},
+        {"id": 5, "name": "Dunban", "skills": ["", "",""]},
+        {"id": 6, "name": "Melia", "skills": ["", "",""]},
+        {"id": 7, "name": "Riki", "skills": ["", "",""]},
     ];
+    const [charOrder, setCharOrder] = useState([1, 2, 3, 4, 5, 6, 7]);
+    const mainParty = characters.slice(0, 3);
+    const sideParty = characters.slice(3);
 
     return (
         <>
@@ -86,42 +90,50 @@ export default function MainMenu() {
                             </div>
                         </div>
                         <div className={styles.party__main}>
-                            <div className={styles.party__mainoption}>
-                                <div className={styles.party__mainheader}>
-                                    <Image src={"/images/image.svg"} alt={"Placeholder"} width={30} height={30} />
-                                    <h3 className={styles.leader}>Leader</h3>
-                                </div>
-                                <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
-                                <div className={styles.party__maintext}>
-                                    <h4 className={styles.skill}>Skill</h4>
-                                    <h1>Name</h1>
-                                    <div className={styles.level}>
-                                        <h3 className={styles.party__label}>Lv</h3>
-                                        <h3>1</h3>
+                            {mainParty.map(char => {
+                                return (
+                                    <div key={char.id} className={styles.party__mainoption}>
+                                        <div className={styles.party__mainheader}>
+                                            <Image src={"/images/image.svg"} alt={"Placeholder"} width={30} height={30} />
+                                            <h3 className={styles.leader}>Leader</h3>
+                                        </div>
+                                        <Image src={"/images/image.svg"} alt={"Placeholder"} width={150} height={150} />
+                                        <div className={styles.party__maintext}>
+                                            <h4 className={styles.skill}>{char.skills[0]}</h4>
+                                            <h1>{char.name}</h1>
+                                            <div className={styles.level}>
+                                                <h3 className={styles.party__label}>Lv</h3>
+                                                <h3>1</h3>
+                                            </div>
+                                            <div className={styles.health}>
+                                                <h3 className={styles.party__label}>HP</h3>
+                                                <h3>1</h3>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={styles.health}>
-                                        <h3 className={styles.party__label}>HP</h3>
-                                        <h3>1</h3>
-                                    </div>
-                                </div>
-                            </div>
+                                )
+                            })}
                         </div>
                         <div className={styles.party__sub}>
-                            <div className={styles.party__suboption}>
-                                <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
-                                <div className={styles.party__subtext}>
-                                    <h4 className={styles.skill}>Skill</h4>
-                                    <h1>Name</h1>
-                                    <div className={styles.level}>
-                                        <h3 className={styles.party__label}>Lv</h3>
-                                        <h3>1</h3>
+                            {sideParty.map(char => {
+                                return (
+                                    <div key={char.id} className={styles.party__suboption}>
+                                        <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
+                                        <div className={styles.party__subtext}>
+                                            <h4 className={styles.skill}>{char.skills[0]}</h4>
+                                            <h1>{char.name}</h1>
+                                            <div className={styles.level}>
+                                                <h3 className={styles.party__label}>Lv</h3>
+                                                <h3>1</h3>
+                                            </div>
+                                            <div className={styles.health}>
+                                                <h3 className={styles.party__label}>HP</h3>
+                                                <h3>1</h3>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={styles.health}>
-                                        <h3 className={styles.party__label}>HP</h3>
-                                        <h3>1</h3>
-                                    </div>
-                                </div>
-                            </div>
+                                )
+                            })}
                             <div className={styles.party__guestsection}>
                                 <h3>Guests</h3>
                                 <div className={styles.guests}>
