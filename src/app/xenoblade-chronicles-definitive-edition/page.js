@@ -5,6 +5,13 @@ import Image from "next/image";
 import {useState} from "react";
 import {Archivo} from "next/font/google";
 
+import headerblade from "./assets/bladeheader.svg";
+import iconGold from "./assets/icon_gold.svg";
+import iconClock from "./assets/icon_clock.svg";
+import iconOrder from "./assets/icon_order.svg";
+import iconSystemPlus from "./assets/icon_system_plus.svg";
+import decRing from "./assets/dec_ring.svg";
+
 import styles from './page.module.css';
 
 const archivo = Archivo({
@@ -44,22 +51,26 @@ export default function MainMenu() {
             <div className={`${styles.page} ${archivo.className}`}>
                 <div className={styles.main}>
                     <div className={styles.header}>
-                        <div className={styles.section__text}>
-                            <h1>Main Menu</h1>
+                        <div className={styles.blade__section}>
+                            <Image src={headerblade} alt={"Header blade image"} width={550} height={90} />
+                            <h1 className={styles.blade__text}>Main Menu</h1>
                         </div>
                         <div className={styles.data}>
                             <div className={styles.data__container}>
                                 <div className={styles.data__goldimg}>
-                                    <Image src={"/images/image.svg"} alt={"Placeholder"} width={16} height={16} />
+                                    <Image src={iconGold} alt={"Gold icon"} width={20} height={20} />
                                 </div>
                                 <div className={styles.data__goldnums}>
                                     <h3>000000000</h3>
                                 </div>
                             </div>
-
+                            <div className={styles.ring__headersection}>
+                                <Image src={decRing} alt={"Ring decoration"} width={12} height={12} />
+                                <div className={styles.ring__headerline} />
+                            </div>
                             <div className={styles.data__container}>
                                 <div className={styles.data__timeimg}>
-                                    <Image src={"/images/image.svg"} alt={"Placeholder"} width={16} height={16} />
+                                    <Image src={iconClock} alt={"Clock icon"} width={18} height={18} />
                                 </div>
                                 <div className={styles.data__timenums}>
                                     <h3>000:00</h3>
@@ -75,17 +86,22 @@ export default function MainMenu() {
                                     return (
                                         <div key={key} className={styles.menuoption}>
                                             <h2>{key}</h2>
-                                            <div className={styles.circles}>
-                                                <div className={styles.circle__out}/>
-                                                <div className={styles.circle__mid}/>
-                                                <div className={styles.circle__in}/>
+                                            <div className={styles.menuoption__end}>
+                                                {key === "Collectables" &&
+                                                    <h2> {">"} </h2>
+                                                }
+                                                <div className={styles.circles}>
+                                                    <div className={styles.circle__out}/>
+                                                    <div className={styles.circle__mid}/>
+                                                    <div className={styles.circle__in}/>
+                                                </div>
                                             </div>
                                         </div>
                                     )
                                 })}
                             </div>
                             <div className={styles.systembutton}>
-                                <Image src={"/images/image.svg"} alt={"Placeholder"} width={20} height={20} />
+                                <Image src={iconSystemPlus} alt={"System Plus icon"} width={20} height={20} />
                                 <h4>System Menu</h4>
                             </div>
                         </div>
@@ -94,18 +110,28 @@ export default function MainMenu() {
                                 return (
                                     <div key={char.id} className={styles.party__mainoption}>
                                         <div className={styles.party__mainheader}>
-                                            <Image src={"/images/image.svg"} alt={"Placeholder"} width={30} height={30} />
-                                            <h3 className={styles.leader}>Leader</h3>
+                                            <div className={styles.iconorder}>
+                                                <Image src={iconOrder} alt={"Order icon"} width={56} height={56} />
+                                                <h2 className={styles.iconorder__number}>{char.id}</h2>
+                                            </div>
+                                            {char.id === 1 &&
+                                                <h2 className={styles.leader}>Leader</h2>
+                                            }
                                         </div>
                                         <Image src={"/images/image.svg"} alt={"Placeholder"} width={150} height={150} />
                                         <div className={styles.party__maintext}>
                                             <h4 className={styles.skill}>{char.skills[0]}</h4>
                                             <h1>{char.name}</h1>
-                                            <div className={styles.level}>
+                                            <div className={styles.ring__partysection}>
+                                                <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
+                                                <div className={styles.ring__partyline} />
+                                                <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
+                                            </div>
+                                            <div className={styles.main__level}>
                                                 <h3 className={styles.party__label}>Lv</h3>
                                                 <h3>1</h3>
                                             </div>
-                                            <div className={styles.health}>
+                                            <div className={styles.main__health}>
                                                 <h3 className={styles.party__label}>HP</h3>
                                                 <h3>1</h3>
                                             </div>
@@ -121,12 +147,12 @@ export default function MainMenu() {
                                         <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
                                         <div className={styles.party__subtext}>
                                             <h4 className={styles.skill}>{char.skills[0]}</h4>
-                                            <h1>{char.name}</h1>
-                                            <div className={styles.level}>
+                                            <h2>{char.name}</h2>
+                                            <div className={styles.sub__level}>
                                                 <h3 className={styles.party__label}>Lv</h3>
                                                 <h3>1</h3>
                                             </div>
-                                            <div className={styles.health}>
+                                            <div className={styles.sub__health}>
                                                 <h3 className={styles.party__label}>HP</h3>
                                                 <h3>1</h3>
                                             </div>
