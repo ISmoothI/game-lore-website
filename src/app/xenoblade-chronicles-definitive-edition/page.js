@@ -23,28 +23,39 @@ const archivo = Archivo({
 export default function MainMenu() {
     const menuOptions = {
         "Change Equipment": "Adjust your party members' equipment.",
-        "Party": "",
-        "Skill Trees": "",
-        "Arts": "",
-        "Area Maps": "",
-        "Change Time": "",
-        "Quest Log": "",
-        "Affinity Chart": "",
-        "Collectables": "",
+        "Party": "Set up party members.",
+        "Skill Trees": "Manage Skill Trees and set up Skill Links.",
+        "Arts": "Set and level up Arts.",
+        "Area Maps": "View area maps and use skip travel.",
+        "Change Time": "Change in-game time.",
+        "Quest Log": "Check quest details.",
+        "Gem Crafting": "Craft gems from crystals.",
+        "Affinity Chart": "Check affinity.",
+        "Collectables": "Check all sorts of information.",
     };
 
-    const characters = [
-        {"id": 1, "name": "Shulk", "skills": ["", "",""]},
-        {"id": 2, "name": "Reyn", "skills": ["", "",""]},
-        {"id": 3, "name": "Fiora", "skills": ["", "",""]},
-        {"id": 4, "name": "Sharla", "skills": ["", "",""]},
-        {"id": 5, "name": "Dunban", "skills": ["", "",""]},
-        {"id": 6, "name": "Melia", "skills": ["", "",""]},
-        {"id": 7, "name": "Riki", "skills": ["", "",""]},
-    ];
+    const [characters, setCharacters] = useState( [
+        {"id": 1, "name": "Shulk", "level": "1", "health": "100", "skills": ["Humanity", "Integrity","Intuition"]},
+        {"id": 2, "name": "Reyn", "level": "1", "health": "100", "skills": ["Enthusiasm", "Spirit", "Diligence"]},
+        {"id": 3, "name": "Fiora", "level": "1", "health": "100", "skills": ["", "", ""]},
+        {"id": 4, "name": "Sharla", "level": "1", "health": "100", "skills": ["Perseverance", "Devotion", "Confidence"]},
+        {"id": 5, "name": "Dunban", "level": "1", "health": "100", "skills": ["Wisdom", "Bravery", "Prudence"]},
+        {"id": 6, "name": "Riki", "level": "1", "health": "100", "skills": ["Innocence", "Vivacity", "Flexibility"]},
+        {"id": 7, "name": "Melia", "level": "1", "health": "100", "skills": ["Honesty", "Serenity", "Reliability"]},
+    ]);
     const [charOrder, setCharOrder] = useState([1, 2, 3, 4, 5, 6, 7]);
     const mainParty = characters.slice(0, 3);
     const sideParty = characters.slice(3);
+    const [hoveredOption, setHoveredOption] = useState(null);
+
+    //POSSIBLE FUTURE USE FOR PAGE EXPANSION
+    // const changeLevel = (id, level) => {
+    //     setCharacters(prevChars =>
+    //         prevChars.map(char =>
+    //             char.id === id ? {...char, "level": char} : char
+    //         )
+    //     );
+    // };
 
     return (
         <>
@@ -61,7 +72,7 @@ export default function MainMenu() {
                                     <Image src={iconGold} alt={"Gold icon"} width={20} height={20} />
                                 </div>
                                 <div className={styles.data__goldnums}>
-                                    <h3>000000000</h3>
+                                    <input className={styles.gold__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{9}"} maxLength={9} defaultValue={"000000000"} size={9} title={"Click to change the amount of gold held."}/>
                                 </div>
                             </div>
                             <div className={styles.ring__headersection}>
@@ -73,7 +84,9 @@ export default function MainMenu() {
                                     <Image src={iconClock} alt={"Clock icon"} width={18} height={18} />
                                 </div>
                                 <div className={styles.data__timenums}>
-                                    <h3>000:00</h3>
+                                    <input className={styles.time__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={"000"} size={3} title={"Click to change the set time hours."}/>
+                                    <h3>:</h3>
+                                    <input className={styles.time__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={"00"} size={2} title={"Click to change the set time minutes."}/>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +97,7 @@ export default function MainMenu() {
                             <div className={styles.menuoptions}>
                                 {Object.keys(menuOptions).map(key => {
                                     return (
-                                        <div key={key} className={styles.menuoption}>
+                                        <div key={key} className={styles.menuoption} onMouseEnter={() => setHoveredOption(key)} onMouseLeave={() => setHoveredOption(null)}>
                                             <h2>{key}</h2>
                                             <div className={styles.menuoption__end}>
                                                 {key === "Collectables" &&
@@ -120,7 +133,7 @@ export default function MainMenu() {
                                         </div>
                                         <Image src={"/images/image.svg"} alt={"Placeholder"} width={150} height={150} />
                                         <div className={styles.party__maintext}>
-                                            <h4 className={styles.skill}>{char.skills[0]}</h4>
+                                            <h4 className={styles.skill} >{char.skills[0]}</h4>
                                             <h1>{char.name}</h1>
                                             <div className={styles.ring__partysection}>
                                                 <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
@@ -129,11 +142,11 @@ export default function MainMenu() {
                                             </div>
                                             <div className={styles.main__level}>
                                                 <h3 className={styles.party__label}>Lv</h3>
-                                                <h3>1</h3>
+                                                <input className={styles.main__levelinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={char.level} size={2} title={`Click to change ${char.name}'s level.`}/>
                                             </div>
                                             <div className={styles.main__health}>
                                                 <h3 className={styles.party__label}>HP</h3>
-                                                <h3>1</h3>
+                                                <input className={styles.gold__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={char.health} size={4} title={`Click to change ${char.name}'s health.`}/>
                                             </div>
                                         </div>
                                     </div>
@@ -150,11 +163,11 @@ export default function MainMenu() {
                                             <h2>{char.name}</h2>
                                             <div className={styles.sub__level}>
                                                 <h3 className={styles.party__label}>Lv</h3>
-                                                <h3>1</h3>
+                                                <input className={styles.sub__levelinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={char.level} size={2} title={`Click to change ${char.name}'s level.`}/>
                                             </div>
                                             <div className={styles.sub__health}>
                                                 <h3 className={styles.party__label}>HP</h3>
-                                                <h3>1</h3>
+                                                <input className={styles.sub__healthinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={char.health} size={4} title={`Click to change ${char.name}'s health.`}/>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +185,7 @@ export default function MainMenu() {
                     </div>
 
                     <div className={styles.menuoption__desc}>
-                        <h3>MENU DESC</h3>
+                        <h3 className={styles.menuoption__text}>{menuOptions[hoveredOption]}&nbsp;</h3>
                     </div>
                     <div className={styles.footer}>
                     </div>

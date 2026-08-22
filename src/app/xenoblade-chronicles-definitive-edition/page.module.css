@@ -68,6 +68,38 @@
     width: 90%;
 }
 
+.gold__input {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+
+}
+
+.data__timenums {
+    display: flex;
+    flex-direction: row;
+}
+
+.time__input {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
+    /*text-align: center;*/
+}
+
 .ring__headersection {
     display: flex;
     flex-direction: row;
@@ -255,20 +287,35 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    gap: 2px;
 }
 
 .main__level {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.main__levelinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
 }
 
 .main__health {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
 }
 
 .party__sub {
@@ -293,8 +340,10 @@
     display: flex;
     flex-direction: column;
     align-items: end;
+    justify-content: center;
     box-sizing: border-box;
     width: 100%;
+    height: 100%;
     padding-left: 16px;
 }
 
@@ -305,6 +354,19 @@
     width: 100%;
 }
 
+.sub__levelinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
+}
+
 .sub__health {
     display: flex;
     flex-direction: row;
@@ -312,7 +374,20 @@
     width: 100%;
 }
 
+.sub__healthinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+}
+
 .skill {
+    cursor: pointer;
     color: #f1ecc4;
     text-shadow:
             #b47d3a 1px -1px 0,
@@ -357,5 +432,9 @@
 }
 
 .menuoption__desc {
-    background-image: linear-gradient(to right, #332c24, transparent);
+    background-image: linear-gradient(to right, #332c24 0%, transparent 50%);
+}
+
+.menuoption__text {
+    margin-left: 40px !important;
 }
