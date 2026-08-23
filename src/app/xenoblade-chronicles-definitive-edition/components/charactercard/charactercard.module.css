@@ -1,0 +1,188 @@
+.party__mainoption {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: end;
+    border: #7b776d solid 2px;
+    border-radius: 20px;
+    background: #1d1c18;
+    padding: 0px 6px 6px;
+}
+
+.party__mainheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 4px;
+}
+
+.iconorder {
+    position: relative;
+}
+
+.iconorder__number {
+    position: absolute;
+    top: 12px;
+    left: 22px;
+    color: #332c24;
+}
+
+.leader {
+    color: #362f29;
+    box-sizing: border-box;
+    padding-top: 6px;
+    text-shadow:
+            #b8afa8 1px -1px 0,
+            #b8afa8 1px 1px 0,
+            #b8afa8 -1px 1px 0,
+            #b8afa8 -1px -1px 0,
+            #b8afa8 0 -1px 0,
+            #b8afa8 0 1px 0,
+            #b8afa8 -1px 0 0,
+            #b8afa8 1px 0 0;
+}
+
+.party__maintext {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2px;
+}
+
+.main__level {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.main__levelinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
+}
+
+.main__health {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.main__healthinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.party__suboption {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: end;
+    justify-content: space-between;
+    border: #7b776d solid 2px;
+    border-radius: 20px;
+    background: #1d1c18;
+    padding: 6px 20px 6px 6px;
+}
+
+.party__subtext {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-left: 16px;
+}
+
+.sub__level {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sub__levelinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+    width: 40px;
+}
+
+.sub__health {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sub__healthinput {
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    font: inherit;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.skill {
+    cursor: pointer;
+    color: #f1ecc4;
+    text-shadow:
+            #b47d3a 1px -1px 0,
+            #b47d3a 1px 1px 0,
+            #b47d3a -1px 1px 0,
+            #b47d3a -1px -1px 0,
+            #b47d3a 0 -1px 0,
+            #b47d3a 0 1px 0,
+            #b47d3a -1px 0 0,
+            #b47d3a 1px 0 0;
+}
+
+.party__label {
+    color: #d2c1a3;
+}
+
+.ring__partysection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.ring__partyline {
+    background: #a19485;
+    width: 100%;
+    height: 2px;
+}

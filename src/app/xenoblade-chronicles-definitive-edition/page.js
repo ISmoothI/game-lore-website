@@ -4,11 +4,11 @@ import Image from "next/image";
 
 import {useState} from "react";
 import {Archivo} from "next/font/google";
+import {CharacterCard} from "@/app/xenoblade-chronicles-definitive-edition/components/charactercard/charactercard";
 
 import headerblade from "./assets/bladeheader.svg";
 import iconGold from "./assets/icon_gold.svg";
 import iconClock from "./assets/icon_clock.svg";
-import iconOrder from "./assets/icon_order.svg";
 import iconSystemPlus from "./assets/icon_system_plus.svg";
 import decRing from "./assets/dec_ring.svg";
 
@@ -47,15 +47,6 @@ export default function MainMenu() {
     const mainParty = characters.slice(0, 3);
     const sideParty = characters.slice(3);
     const [hoveredOption, setHoveredOption] = useState(null);
-
-    //POSSIBLE FUTURE USE FOR PAGE EXPANSION
-    // const changeLevel = (id, level) => {
-    //     setCharacters(prevChars =>
-    //         prevChars.map(char =>
-    //             char.id === id ? {...char, "level": char} : char
-    //         )
-    //     );
-    // };
 
     return (
         <>
@@ -121,56 +112,14 @@ export default function MainMenu() {
                         <div className={styles.party__main}>
                             {mainParty.map(char => {
                                 return (
-                                    <div key={char.id} className={styles.party__mainoption}>
-                                        <div className={styles.party__mainheader}>
-                                            <div className={styles.iconorder}>
-                                                <Image src={iconOrder} alt={"Order icon"} width={56} height={56} />
-                                                <h2 className={styles.iconorder__number}>{char.id}</h2>
-                                            </div>
-                                            {char.id === 1 &&
-                                                <h2 className={styles.leader}>Leader</h2>
-                                            }
-                                        </div>
-                                        <Image src={"/images/image.svg"} alt={"Placeholder"} width={150} height={150} />
-                                        <div className={styles.party__maintext}>
-                                            <h4 className={styles.skill} >{char.skills[0]}</h4>
-                                            <h1>{char.name}</h1>
-                                            <div className={styles.ring__partysection}>
-                                                <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
-                                                <div className={styles.ring__partyline} />
-                                                <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
-                                            </div>
-                                            <div className={styles.main__level}>
-                                                <h3 className={styles.party__label}>Lv</h3>
-                                                <input className={styles.main__levelinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={char.level} size={2} title={`Click to change ${char.name}'s level.`}/>
-                                            </div>
-                                            <div className={styles.main__health}>
-                                                <h3 className={styles.party__label}>HP</h3>
-                                                <input className={styles.gold__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={char.health} size={4} title={`Click to change ${char.name}'s health.`}/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <CharacterCard key={char.id} char={char} isMainParty={true} />
                                 )
                             })}
                         </div>
                         <div className={styles.party__sub}>
                             {sideParty.map(char => {
                                 return (
-                                    <div key={char.id} className={styles.party__suboption}>
-                                        <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
-                                        <div className={styles.party__subtext}>
-                                            <h4 className={styles.skill}>{char.skills[0]}</h4>
-                                            <h2>{char.name}</h2>
-                                            <div className={styles.sub__level}>
-                                                <h3 className={styles.party__label}>Lv</h3>
-                                                <input className={styles.sub__levelinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={char.level} size={2} title={`Click to change ${char.name}'s level.`}/>
-                                            </div>
-                                            <div className={styles.sub__health}>
-                                                <h3 className={styles.party__label}>HP</h3>
-                                                <input className={styles.sub__healthinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={char.health} size={4} title={`Click to change ${char.name}'s health.`}/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <CharacterCard key={char.id} char={char} isMainParty={false} />
                                 )
                             })}
                             <div className={styles.party__guestsection}>
@@ -185,7 +134,7 @@ export default function MainMenu() {
                     </div>
 
                     <div className={styles.menuoption__desc}>
-                        <h3 className={styles.menuoption__text}>{menuOptions[hoveredOption]}&nbsp;</h3>
+                        <h3 className={styles.menuoption__desctext}>{menuOptions[hoveredOption]}&nbsp;</h3>
                     </div>
                     <div className={styles.footer}>
                     </div>
