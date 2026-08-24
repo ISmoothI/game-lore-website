@@ -17,16 +17,16 @@ export function CharacterCard({ char, isMainParty }) {
                 <div key={char.id} className={styles.party__mainoption}>
                     <div className={styles.party__mainheader}>
                         <div className={styles.iconorder}>
-                            <Image src={iconOrder} alt={"Order icon"} width={56} height={56} />
+                            <Image className={styles.iconorder__img} src={iconOrder} alt={"Order icon"} />
                             <h2 className={styles.iconorder__number}>{char.id}</h2>
                         </div>
                         {char.id === 1 &&
                             <h2 className={styles.leader}>Leader</h2>
                         }
                     </div>
-                    <Image src={"/images/image.svg"} alt={"Placeholder"} width={150} height={150} />
+                    <Image className={styles.main__img} src={iconOrder} alt={"Placeholder"} />
                     <div className={styles.party__maintext}>
-                        <h4 className={styles.skill} onClick={() => setCurrSkillIndex((currSkillIndex + 1) % 3)}>{char.skills[currSkillIndex]}</h4>
+                        <h3 className={styles.skill} onClick={() => setCurrSkillIndex((currSkillIndex + 1) % 3)}>{char.skills[currSkillIndex]}</h3>
                         <h1>{char.name}</h1>
                         <div className={styles.ring__partysection}>
                             <Image src={decRing} alt={"Ring decoration"} width={10} height={10} />
@@ -46,9 +46,9 @@ export function CharacterCard({ char, isMainParty }) {
             }
             {!isMainParty &&
                 <div key={char.id} className={styles.party__suboption}>
-                    <Image src={"/images/image.svg"} alt={"Placeholder"} width={100} height={100} />
+                    <Image className={styles.sub__img} src={iconOrder} alt={"Placeholder"} />
                     <div className={styles.party__subtext}>
-                        <h4 className={styles.skill} onClick={() => setCurrSkillIndex((currSkillIndex + 1) % 3)}>{char.skills[currSkillIndex]}</h4>
+                        <h3 className={styles.skill} onClick={() => setCurrSkillIndex((currSkillIndex + 1) % 3)}>{char.skills[currSkillIndex]}</h3>
                         <h2>{char.name}</h2>
                         <div className={styles.sub__level}>
                             <h3 className={styles.party__label}>Lv</h3>

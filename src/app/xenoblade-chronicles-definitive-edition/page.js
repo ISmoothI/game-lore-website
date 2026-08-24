@@ -54,13 +54,13 @@ export default function MainMenu() {
                 <div className={styles.main}>
                     <div className={styles.header}>
                         <div className={styles.blade__section}>
-                            <Image src={headerblade} alt={"Header blade image"} width={550} height={90} />
+                            <Image className={styles.headerblade} src={headerblade} alt={"Header blade image"} />
                             <h1 className={styles.blade__text}>Main Menu</h1>
                         </div>
                         <div className={styles.data}>
                             <div className={styles.data__container}>
                                 <div className={styles.data__goldimg}>
-                                    <Image src={iconGold} alt={"Gold icon"} width={20} height={20} />
+                                    <Image className={styles.gold__img} src={iconGold} alt={"Gold icon"} />
                                 </div>
                                 <div className={styles.data__goldnums}>
                                     <input className={styles.gold__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{9}"} maxLength={9} defaultValue={"000000000"} size={9} title={"Click to change the amount of gold held."}/>
@@ -75,9 +75,9 @@ export default function MainMenu() {
                                     <Image src={iconClock} alt={"Clock icon"} width={18} height={18} />
                                 </div>
                                 <div className={styles.data__timenums}>
-                                    <input className={styles.time__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={"000"} size={3} title={"Click to change the set time hours."}/>
+                                    <input className={styles.time__hourinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{3}"} maxLength={3} defaultValue={"000"} size={3} title={"Click to change the set time hours."}/>
                                     <h3>:</h3>
-                                    <input className={styles.time__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={"00"} size={2} title={"Click to change the set time minutes."}/>
+                                    <input className={styles.time__minuteinput} type={"text"} inputMode={"numeric"} pattern={"[0-9]{2}"} maxLength={2} defaultValue={"00"} size={2} title={"Click to change the set time minutes."}/>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ export default function MainMenu() {
                                 {Object.keys(menuOptions).map(key => {
                                     return (
                                         <div key={key} className={styles.menuoption} onMouseEnter={() => setHoveredOption(key)} onMouseLeave={() => setHoveredOption(null)}>
-                                            <h2>{key}</h2>
+                                            <h2 className={styles.menuoption__text}>{key}</h2>
                                             <div className={styles.menuoption__end}>
                                                 {key === "Collectables" &&
                                                     <h2> {">"} </h2>
