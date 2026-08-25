@@ -289,6 +289,111 @@
     margin-left: 40px !important;
 }
 
+@media (max-width: 1262px) {
+
+    .data {
+        align-self: end;
+        width: 20%;
+        margin-top: 0;
+    }
+
+    .menubuttons {
+        gap: 10px;
+    }
+
+    .party__sub {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 972px) {
+
+    .main h1 {
+        font-size: 26px;
+    }
+
+    .main h2 {
+        font-size: 23px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .headerblade {
+        width: 400px;
+        height: 66px;
+    }
+
+    .blade__text {
+        top: 6px;
+        left: 66px;
+    }
+
+    .menuoption {
+        padding-left: 10px;
+        gap: 20px;
+    }
+
+
+}
+
+@media (max-width: 797px) {
+
+    .headerblade {
+        width: 330px;
+        height: 55px;
+    }
+
+    .data {
+        width: 30%;
+    }
+
+    .body {
+        gap: 10px;
+    }
+
+    .party__main {
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 658px) {
+    .main h1 {
+        font-size: 23px;
+    }
+
+    .blade__text {
+        top: 5px;
+        left: 55px;
+    }
+
+    .gold__input {
+        font-size: 16px;
+    }
+
+    .time__hourinput {
+        font-size: 16px;
+    }
+
+    .time__minuteinput {
+        font-size: 16px;
+    }
+
+    .party__main {
+        order: 3;
+    }
+
+    .party__sub {
+        flex-direction: column;
+        order: 2;
+    }
+
+}
+
 @media (max-width: 528px) {
     .main h1 {
         font-size: 20px;
@@ -322,7 +427,7 @@
 
     .data {
         align-self: end;
-        width: 50%;
+        width: 40%;
         margin-top: 0;
     }
 

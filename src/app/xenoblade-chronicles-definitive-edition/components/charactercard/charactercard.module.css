@@ -204,6 +204,13 @@
     height: 2px;
 }
 
+@media (max-width: 797px) {
+    .main__img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
 @media (max-width: 528px) {
 
     .iconorder__img {
