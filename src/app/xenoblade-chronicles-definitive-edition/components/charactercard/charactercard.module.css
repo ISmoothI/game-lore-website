@@ -50,6 +50,11 @@
             #b8afa8 1px 0 0;
 }
 
+.main__img {
+    width: 160px;
+    height: 380px;
+}
+
 .party__maintext {
     display: flex;
     flex-direction: column;
@@ -58,11 +63,6 @@
     width: 100%;
     height: 100%;
     gap: 2px;
-}
-
-.main__img {
-    width: 150px;
-    height: 150px;
 }
 
 .main__level {
@@ -114,11 +114,11 @@
     border: #7b776d solid 2px;
     border-radius: 20px;
     background: #1d1c18;
-    padding: 6px 20px 6px 6px;
+    padding: 0px 20px 0px 0px;
 }
 
 .sub__img {
-    width: 100px;
+    width: 150px;
     height: 100px;
 }
 
@@ -128,9 +128,9 @@
     align-items: end;
     justify-content: center;
     box-sizing: border-box;
-    width: 100%;
+    width: 40%;
     height: 100%;
-    padding-left: 16px;
+    padding-left: 0px;
 }
 
 .sub__level {
@@ -204,10 +204,10 @@
     height: 2px;
 }
 
-@media (max-width: 797px) {
+@media (max-width: 828px) {
     .main__img {
         width: 120px;
-        height: 120px;
+        height: 300px;
     }
 }
 
@@ -225,7 +225,7 @@
 
     .main__img {
         width: 100px;
-        height: 100px;
+        height: 240px;
     }
 
     .main__level {
@@ -250,6 +250,11 @@
         width: 100%;
     }
 
+    .sub__img {
+        width: 90px;
+        height: 80px;
+    }
+
     .party__subtext {
         padding: 0;
         justify-content: center;
@@ -262,11 +267,6 @@
 
     .sub__health {
         justify-content: center;
-    }
-
-    .sub__img {
-        width: 80px;
-        height: 80px;
     }
 
     .sub__levelinput {

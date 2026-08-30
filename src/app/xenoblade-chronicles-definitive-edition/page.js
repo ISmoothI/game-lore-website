@@ -11,6 +11,16 @@ import iconGold from "./assets/icon_gold.svg";
 import iconClock from "./assets/icon_clock.svg";
 import iconSystemPlus from "./assets/icon_system_plus.svg";
 import decRing from "./assets/dec_ring.svg";
+import shulkMainImg from "./assets/img_shulk_main.svg";
+import reynMainImg from "./assets/img_reyn_main.svg";
+import fioraMainImg from "./assets/img_fiora_main.svg";
+import sharlaSubImg from "./assets/img_sharla_sub.svg";
+import dunbanSubImg from "./assets/img_dunban_sub.svg";
+import rikiSubImg from "./assets/img_riki_sub.svg";
+import meliaSubImg from "./assets/img_melia_sub.svg";
+import jujuGuestImg from "./assets/img_juju_guest.svg";
+import otharonGuestImg from "./assets/img_otharon_guest.svg";
+import alvisGuestImg from "./assets/img_alvis_guest.svg";
 
 import styles from './page.module.css';
 
@@ -33,17 +43,21 @@ export default function MainMenu() {
         "Affinity Chart": "Check affinity.",
         "Collectables": "Check all sorts of information.",
     };
-
     const [characters, setCharacters] = useState( [
-        {"id": 1, "name": "Shulk", "level": "1", "health": "100", "skills": ["Humanity", "Integrity","Intuition"]},
-        {"id": 2, "name": "Reyn", "level": "1", "health": "100", "skills": ["Enthusiasm", "Spirit", "Diligence"]},
-        {"id": 3, "name": "Fiora", "level": "1", "health": "100", "skills": ["", "", ""]},
-        {"id": 4, "name": "Sharla", "level": "1", "health": "100", "skills": ["Perseverance", "Devotion", "Confidence"]},
-        {"id": 5, "name": "Dunban", "level": "1", "health": "100", "skills": ["Wisdom", "Bravery", "Prudence"]},
-        {"id": 6, "name": "Riki", "level": "1", "health": "100", "skills": ["Innocence", "Vivacity", "Flexibility"]},
-        {"id": 7, "name": "Melia", "level": "1", "health": "100", "skills": ["Honesty", "Serenity", "Reliability"]},
+        {"id": 1, "name": "Shulk", "level": "1", "health": "1000", "skills": ["Humanity", "Integrity","Intuition", "Bravery", "Pessimism"], "mainImg": shulkMainImg, "subImg": null},
+        {"id": 2, "name": "Reyn", "level": "4", "health": "1300", "skills": ["Enthusiasm", "Spirit", "Diligence", "Camaraderie", "Impatience"], "mainImg": reynMainImg, "subImg": null},
+        {"id": 3, "name": "Fiora", "level": "8", "health": "1600", "skills": ["Daring", "Courage", "Zeal", "Innocence", "Rashness"], "mainImg": fioraMainImg, "subImg": null},
+        {"id": 4, "name": "Sharla", "level": "14", "health": "1900", "skills": ["Perseverance", "Devotion", "Confidence", "Affection", "Reliance"], "mainImg": null, "subImg": sharlaSubImg},
+        {"id": 5, "name": "Dunban", "level": "20", "health": "2500", "skills": ["Wisdom", "Bravery", "Prudence", "Enthusiasm", "Obstinance"], "mainImg": null, "subImg": dunbanSubImg},
+        {"id": 6, "name": "Riki", "level": "24", "health": "3000", "skills": ["Innocence", "Vivacity", "Flexibility", "Heroism", "Cowardice"], "mainImg": null, "subImg": rikiSubImg},
+        {"id": 7, "name": "Melia", "level": "28", "health": "3400", "skills": ["Honesty", "Serenity", "Reliability", "Passion", "Reticence"], "mainImg": null, "subImg": meliaSubImg},
     ]);
-    const [charOrder, setCharOrder] = useState([1, 2, 3, 4, 5, 6, 7]);
+    const [guests, setGuests] = useState( [
+        {"id": 1, "name": "Juju", "img": jujuGuestImg},
+        {"id": 2, "name": "Otharon", "img": otharonGuestImg},
+        {"id": 3, "name": "Alvis", "img": alvisGuestImg},
+    ]);
+    // const [charOrder, setCharOrder] = useState([1, 2, 3, 4, 5, 6, 7]);
     const mainParty = characters.slice(0, 3);
     const sideParty = characters.slice(3);
     const [hoveredOption, setHoveredOption] = useState(null);
@@ -123,11 +137,15 @@ export default function MainMenu() {
                                 )
                             })}
                             <div className={styles.party__guestsection}>
-                                <h3>Guests</h3>
+                                <h3 className={styles.guest__header}>Guests</h3>
                                 <div className={styles.guests}>
-                                    <div className={styles.guest}>
-                                        <Image src={"/images/image.svg"} alt={"Placeholder"} width={20} height={20} />
-                                    </div>
+                                    {guests.map(guest => {
+                                        return (
+                                            <div key={guest.id} className={styles.guest}>
+                                                <Image src={guest.img} alt={`${guest.name} guest image.`} width={46} height={46}/>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
