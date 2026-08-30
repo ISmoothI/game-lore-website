@@ -26,5 +26,12 @@
     "title": "Persona 3 Portable",
     "description": "A role-playing game for the PlayStation Portable.",
     "tags": ["2009", "PSP"]
+  },
+  {
+    "id": 5,
+    "url": "xenoblade-chronicles-definitive-edition",
+    "title": "Xenoblade Chronicles Definitive Edition",
+    "description": "An action role-playing game for the Nintendo Switch.",
+    "tags": ["2020", "Switch"]
   }
 ]
