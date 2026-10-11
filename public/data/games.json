@@ -33,5 +33,12 @@
     "title": "Xenoblade Chronicles Definitive Edition",
     "description": "An action role-playing game for the Nintendo Switch.",
     "tags": ["2020", "Switch"]
+  },
+  {
+    "id": 6,
+    "url": "final-fantasy-7",
+    "title": "Final Fantasy VII",
+    "description": "A turn based role-playing game for the PlayStation.",
+    "tags": ["1997", "PS1"]
   }
 ]

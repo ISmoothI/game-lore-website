@@ -1,0 +1,119 @@
+.page {
+    /*font-family: var(--font-urbanist);*/
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    background: black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100vh;*/
+    width: 100%;
+    color: white;
+}
+
+.main h2 {
+    margin: 0;
+}
+
+.party {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, #0055b4, #000884, #000329);
+    border: 2px solid gray;
+    outline: 3px solid white;
+    box-shadow: 0 0 0 5px gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 15px 80px 40px 40px;
+    margin: 20px;
+    gap: 20px;
+}
+
+.char__info {
+    display: flex;
+    flex-direction: row;
+}
+
+.char__stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+}
+
+.health {
+    display: flex;
+    flex-direction: row;
+}
+
+.magic {
+    display: flex;
+    flex-direction: row;
+}
+
+.char__levels {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, #0055b4, #000884, #000329);
+    border: 2px solid gray;
+    outline: 3px solid white;
+    box-shadow: 0 0 0 5px gray;
+    border-radius: 4px;
+    width: min-content;
+    padding: 8px 40px 8px 20px;
+}
+
+.extra__stats {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, #0055b4, #000884, #000329);
+    border: 2px solid gray;
+    outline: 3px solid white;
+    box-shadow: 0 0 0 5px gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: min-content;
+    padding: 4px 14px 4px 2px;
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.gil {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.area {
+    background-image: linear-gradient(to bottom right, #0055b4, #000884, #000329);
+    border: 2px solid gray;
+    outline: 3px solid white;
+    box-shadow: 0 0 0 5px gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: min-content;
+    padding: 14px 40px 14px 10px;
+}
