@@ -5,7 +5,10 @@ import Image from "next/image";
 import {useState} from "react";
 import {DotGothic16} from "next/font/google";
 
+import img from "./assets/placeholder.svg";
+
 import styles from './page.module.css';
+import CharacterCard from "@/app/final-fantasy-7/components/charactercard";
 
 const dotGothic16 = DotGothic16({
     subsets: ["latin"],
@@ -33,52 +36,35 @@ export default function MainMenu() {
                     <div className={styles.party}>
                         {characters.slice(0, 3).map((character, index) => (
                             <div key={index} className={styles.char__info}>
-                                {/*<Image src={} alt={} />*/}
-                                <div className={styles.char__stats}>
-                                    <h2>{character.name}</h2>
-                                    <div className={styles.stats}>
-                                        <div>
-                                            <div className={styles.level}>
-                                                <h2>LV</h2>
-                                                <h2>{character.level}</h2>
-                                            </div>
-                                            <div className={styles.health}>
-                                                <h2>HP</h2>
-                                                <h2>{character.health}</h2>
-                                            </div>
-                                            <div className={styles.magic}>
-                                                <h2>MP</h2>
-                                                <h2>{character.magic}</h2>
-                                            </div>
-                                        </div>
-                                        <div className={styles.char__levels}>
-                                            <h2>next level</h2>
-                                            <h2>BAR</h2>
-                                            <h2>Limit level {character.limitlevel}</h2>
-                                            <h2>BAR</h2>
-                                        </div>
-                                    </div>
-                                </div>
+                                <CharacterCard character={character} />
                             </div>
                         ))}
                     </div>
-                    <div className={styles.menu}>
-                        {menuOptions.map((option, index) => (
-                            <h2 key={index}>{option}</h2>
-                        ))}
-                    </div>
-                    <div className={styles.extra__stats}>
-                        <div className={styles.time}>
-                            <h2>Time</h2>
-                            <h2>00:00:00</h2>
+                    <div className={styles.menus}>
+                        <div className={styles.menu}>
+                            {menuOptions.map((option, index) => (
+                                <h2 key={index}>{option}</h2>
+                            ))}
                         </div>
-                        <div className={styles.gil}>
-                            <h2>Gil</h2>
-                            <h2>00000000</h2>
+                        <div className={styles.extramenu}>
+                            <div className={styles.extra__stats}>
+                                <div className={styles.time}>
+                                    <h2>Time</h2>
+                                    <div className={styles.time__text}>
+                                        <h2>01</h2>
+                                        <h2 className={styles.time__colon}>:</h2>
+                                        <h2>31:97</h2>
+                                    </div>
+                                </div>
+                                <div className={styles.gil}>
+                                    <h2>Gil</h2>
+                                    <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{8}"} maxLength={8} defaultValue={"08311997"} size={8} title={`Click to change gil amount.`}/>
+                                </div>
+                            </div>
+                            <div className={styles.area}>
+                                <h2>AREA</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.area}>
-                        <h2>AREA</h2>
                     </div>
                 </div>
             </div>

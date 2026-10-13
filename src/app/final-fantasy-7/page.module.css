@@ -1,13 +1,15 @@
 .page {
     /*font-family: var(--font-urbanist);*/
+    text-shadow: black 2px 2px 0;
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0px 10px;
+    padding: 30px 350px;
     background: black;
 }
 
 .main {
+    position: relative;
     display: flex;
     flex-direction: column;
     /*min-height: 100vh;*/
@@ -28,7 +30,7 @@
     box-shadow: 0 0 0 5px gray;
     border-radius: 4px;
     box-sizing: border-box;
-    padding: 15px 80px 40px 40px;
+    padding: 15px 80px 70px 40px;
     margin: 20px;
     gap: 20px;
 }
@@ -36,37 +38,18 @@
 .char__info {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
-.char__stats {
+.menus {
+    position: absolute;
+    right: 0;
     display: flex;
     flex-direction: column;
-}
-
-.stats {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.level {
-    display: flex;
-    flex-direction: row;
-}
-
-.health {
-    display: flex;
-    flex-direction: row;
-}
-
-.magic {
-    display: flex;
-    flex-direction: row;
-}
-
-.char__levels {
-    display: flex;
-    flex-direction: column;
+    align-items: flex-end;
+    width: min-content;
+    gap: 60px;
 }
 
 .menu {
@@ -78,7 +61,11 @@
     box-shadow: 0 0 0 5px gray;
     border-radius: 4px;
     width: min-content;
-    padding: 8px 40px 8px 20px;
+    padding: 8px 60px 8px 30px;
+}
+
+.extramenu {
+    justify-items: flex-end;
 }
 
 .extra__stats {
@@ -94,6 +81,18 @@
     padding: 4px 14px 4px 2px;
 }
 
+@keyframes blink {
+    0% {
+        color: white;
+    }
+    50% {
+        color: gray;
+    }
+    100% {
+        color: white;
+    }
+}
+
 .time {
     display: flex;
     flex-direction: row;
@@ -101,10 +100,31 @@
     justify-content: space-between;
 }
 
+.time__text {
+    display: flex;
+    flex-direction: row;
+}
+
+.time__colon {
+    animation: blink 1.2s steps(1) infinite;
+}
+
 .gil {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.number__input {
+    font: inherit;
+    font-size: 22px;
+    text-align: end;
+    font-weight: bolder;
+    text-shadow: black 2px 2px 0;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
 }
 
 .area {
@@ -114,6 +134,7 @@
     box-shadow: 0 0 0 5px gray;
     border-radius: 4px;
     box-sizing: border-box;
-    width: min-content;
+    width: 300px;
     padding: 14px 40px 14px 10px;
+    margin-top: 10px;
 }

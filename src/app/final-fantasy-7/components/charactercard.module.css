@@ -1,0 +1,109 @@
+.image__container {
+    width: 200px;
+}
+
+.char__stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.stattext__blue {
+    color: #00c6db;
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+}
+
+.health {
+    display: flex;
+    flex-direction: row;
+}
+
+.health__bar {
+    background-image: linear-gradient(to right, #0b79f3, #b9c6d7);
+    width: 120px;
+    height: 4px;
+}
+
+.number__input {
+    font: inherit;
+    font-size: 22px;
+    text-align: end;
+    font-weight: bolder;
+    text-shadow: black 2px 2px 0;
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.data__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+}
+
+.point__container {
+    background: #4d0200;
+    width: 120px;
+    height: 4px;
+    box-shadow: black 0 2px 0;
+    box-sizing: border-box;
+    margin-left: 6px;
+}
+
+.magic {
+    display: flex;
+    flex-direction: row;
+}
+
+.magic__bar {
+    background-image: linear-gradient(to right, #00e27c, #aecebb);
+    width: 120px;
+    height: 4px;
+}
+
+.char__levels {
+    display: flex;
+    flex-direction: column;
+}
+
+.level__container {
+    width: 160px;
+    height: 20px;
+    background-image: linear-gradient(to bottom, #181a1a 30%, #585b58 30%, #585b58 60%, #676767 60%);
+    border-top: white 3px solid;
+    border-bottom: white 3px solid;
+    border-right: white 6px solid;
+    border-left: white 6px solid;
+    box-sizing: border-box;
+    margin-left: 16px;
+}
+
+.nextlevel__bar {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #542a2a, #a15557, #d6d8c7, #ecc0b8, #f29d95);
+}
+
+.limitlevel__container {
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+}
+
+.limitlevel__bar {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #642858, #ad48aa, #decbe2, #f0b0f1, #f28ae2);
+}
