@@ -1,14 +1,11 @@
 'use client'
 
-import Image from "next/image";
-
 import {useState} from "react";
 import {DotGothic16} from "next/font/google";
 
-import img from "./assets/placeholder.svg";
+import CharacterCard from "./components/charactercard";
 
 import styles from './page.module.css';
-import CharacterCard from "@/app/final-fantasy-7/components/charactercard";
 
 const dotGothic16 = DotGothic16({
     subsets: ["latin"],
@@ -18,16 +15,19 @@ const dotGothic16 = DotGothic16({
 export default function MainMenu() {
     const menuOptions = ["Item", "Magic", "Materia", "Equip", "Status", "Order", "Limit", "Config", "PHS", "Save", "Quit",];
     const [characters, setCharacters] = useState( [
-        {"id": 1, "name": "Cloud", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 2, "name": "Barret", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 3, "name": "Tifa", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 4, "name": "Aeris", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 5, "name": "Red XIII", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 6, "name": "Cait Sith", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 7, "name": "Cid Highwind", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 8, "name": "Yuffie", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
-        {"id": 9, "name": "Vincent", "level": "1", "health": "300", "magic": "30", "nextlevel": "10", "limitlevel": "1", "img": null},
+        {"id": 1, "name": "Cloud", "level": 1, "health": 300, "magic": 30, "nextlevel": 100, "limitlevel": 100, "img": null},
+        {"id": 2, "name": "Barret", "level": 1, "health": 300, "magic": 30, "nextlevel": 60, "limitlevel": 20, "img": null},
+        {"id": 3, "name": "Tifa", "level": 1, "health": 300, "magic": 30, "nextlevel": 40, "limitlevel": 60, "img": null},
+        {"id": 4, "name": "Aeris", "level": 1, "health": 300, "magic": 30, "nextlevel": 20, "limitlevel": 30, "img": null},
+        {"id": 5, "name": "Red XIII", "level": 1, "health": 300, "magic": 30, "nextlevel": 30, "limitlevel": 10, "img": null},
+        {"id": 6, "name": "Cait Sith", "level": 1, "health": 300, "magic": 30, "nextlevel": 50, "limitlevel": 80, "img": null},
+        {"id": 7, "name": "Cid Highwind", "level": 1, "health": 300, "magic": 30, "nextlevel": 10, "limitlevel": 90, "img": null},
+        {"id": 8, "name": "Yuffie", "level": 1, "health": 300, "magic": 30, "nextlevel": 80, "limitlevel": 40, "img": null},
+        {"id": 9, "name": "Vincent", "level": 1, "health": 300, "magic": 30, "nextlevel": 70, "limitlevel": 50, "img": null},
     ]);
+    const areas = ["No.1 Reactor", "."];
+
+    const [areaIndex, setAreaIndex] = useState(0);
 
     return (
         <>
@@ -62,7 +62,7 @@ export default function MainMenu() {
                                 </div>
                             </div>
                             <div className={styles.area}>
-                                <h2>AREA</h2>
+                                <h2 onClick={() => setAreaIndex((areaIndex + 1) % 2)}>{areas[areaIndex]}</h2>
                             </div>
                         </div>
                     </div>

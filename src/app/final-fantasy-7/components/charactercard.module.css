@@ -1,5 +1,8 @@
 .image__container {
+    cursor: pointer;
+    display: flex;
     width: 200px;
+    /*border: black solid 1px;*/
 }
 
 .char__stats {
@@ -76,14 +79,17 @@
 }
 
 .char__levels {
+    color: white;
     display: flex;
     flex-direction: column;
 }
 
 .level__container {
+    z-index: 1;
+    cursor: pointer;
     width: 160px;
     height: 20px;
-    background-image: linear-gradient(to bottom, #181a1a 30%, #585b58 30%, #585b58 60%, #676767 60%);
+    background-image: linear-gradient(to bottom, #181a1a, #585b58, #676767);
     border-top: white 3px solid;
     border-bottom: white 3px solid;
     border-right: white 6px solid;
@@ -93,17 +99,46 @@
 }
 
 .nextlevel__bar {
+    /*width: 30%;*/
     height: 100%;
     background-image: linear-gradient(to bottom, #542a2a, #a15557, #d6d8c7, #ecc0b8, #f29d95);
 }
 
 .limitlevel__container {
+    z-index: 1;
+    color: white;
     display: flex;
     flex-direction: row;
-    z-index: 1;
 }
 
 .limitlevel__bar {
     height: 100%;
     background-image: linear-gradient(to bottom, #642858, #ad48aa, #decbe2, #f0b0f1, #f28ae2);
+}
+
+@media (max-width: 950px) {
+    .number__input {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 790px) {
+    .image__container {
+        width: 160px;
+    }
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .level__container {
+        width: 120px;
+    }
+}
+
+@media (max-width: 540px) {
+    .stats {
+        flex-direction: row;
+    }
 }
