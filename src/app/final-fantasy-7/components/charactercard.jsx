@@ -4,8 +4,6 @@ import Image from "next/image";
 
 import {useState} from "react";
 
-import img from "../assets/placeholder.svg";
-
 import styles from "./charactercard.module.css"
 
 export default function CharacterCard({ character }) {
@@ -20,51 +18,62 @@ export default function CharacterCard({ character }) {
     const [limitLevel, setLimitLevel] = useState(character.limitlevel);
     const [healthColor, setHealthColor] = useState("white");
     const [magicColor, setMagicColor] = useState("white");
+    const [statColor, setStatColor] = useState("white");
 
-    const changeHealthValues = (e, inputVar) => {
+    const changeHealthValues = (newHealthVal, inputVar) => {
         let currHealthValue = currHealth;
         let maxHealthValue = maxHealth;
 
         if(inputVar === "current") {
-            setCurrHealth(parseInt(e.target.value));
-            currHealthValue = parseInt(e.target.value);
+            setCurrHealth(newHealthVal);
+            currHealthValue = newHealthVal;
         }
         else if(inputVar === "max") {
-            setMaxHealth(parseInt(e.target.value));
-            maxHealthValue = parseInt(e.target.value);
+            setMaxHealth(newHealthVal);
+            maxHealthValue = newHealthVal;
         }
 
         if(currHealthValue <= 0) {
             setHealthColor("red");
+            setMagicColor("red");
+            setStatColor("red");
         }
-        else if(currHealthValue > Math.round(maxHealthValue / 3)) {
-            setHealthColor("white");
+        else if(currHealthValue <= Math.round(maxHealthValue / 3)) {
+            setHealthColor("yellow");
+            changeMagicValues(currMagic, "current");
+            setStatColor("white");
         }
         else {
-            setHealthColor("yellow");
+            setHealthColor("white");
+            changeMagicValues(currMagic, "current");
+            setStatColor("white");
         }
     }
-    const changeMagicValues = (e, inputVar) => {
+    const changeMagicValues = (newMagicVal, inputVar) => {
         let currMagicValue = currMagic;
         let maxMagicValue = maxMagic;
 
         if(inputVar === "current") {
-            setCurrMagic(parseInt(e.target.value));
-            currMagicValue = parseInt(e.target.value);
+            setCurrMagic(newMagicVal);
+            currMagicValue = newMagicVal;
         }
         else if(inputVar === "max") {
-            setMaxMagic(parseInt(e.target.value));
-            maxMagicValue = parseInt(e.target.value);
+            setMaxMagic(newMagicVal);
+            maxMagicValue = newMagicVal;
+        }
+
+        if(currHealth === 0) {
+            return;
         }
 
         if(currMagicValue <= 0) {
             setMagicColor("red");
         }
-        else if(currMagicValue > Math.round(maxMagicValue / 3)) {
-            setMagicColor("white");
+        else if(currMagicValue <= Math.round(maxMagicValue / 3)) {
+            setMagicColor("yellow");
         }
         else {
-            setMagicColor("yellow");
+            setMagicColor("white");
         }
     }
     const percentageCalc = (currVal, maxVal) => {
@@ -74,7 +83,7 @@ export default function CharacterCard({ character }) {
     }
     const nextLevelIncrement = () => {
         if(nextLevel <= 90) {
-            setNextLevel(curr => curr + 10);
+            setNextLevel(nextLevel + 10);
         }
         else {
             setNextLevel(0);
@@ -83,7 +92,7 @@ export default function CharacterCard({ character }) {
     }
     const limitLevelIncrement = () => {
         if(limitLevel <= 90) {
-            setLimitLevel(curr => curr + 10);
+            setLimitLevel(limitLevel + 10);
         }
         else {
             setLimitLevel(0);
@@ -93,10 +102,10 @@ export default function CharacterCard({ character }) {
     return (
         <>
             <div className={styles.image__container} style={{justifyContent: positions[positionIndex]}} onClick={() => setPositionIndex((positionIndex + 1) % 2)}>
-                <Image src={img} alt={`Image of ${character.name}`} width={140} height={140} />
+                <Image className={styles.char__image} src={character.img} alt={`Icon image of ${character.name}`} />
             </div>
-            <div className={styles.char__stats}>
-                <h2>{character.name}</h2>
+            <div className={styles.char__stats} style={{color: statColor}}>
+                <input className={styles.name__input} type={"text"} inputMode={"text"} maxLength={9} defaultValue={character.name} size={9} title={`Click to change ${character.name}'s name.`} />
                 <div className={styles.stats}>
                     <div>
                         <div className={styles.level}>
@@ -107,9 +116,9 @@ export default function CharacterCard({ character }) {
                             <h2 className={styles.stattext__blue}>HP</h2>
                             <div className={styles.data__section}>
                                 <div className={styles.data}>
-                                    <input className={styles.number__input} style={{color: healthColor}} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.health} size={4} title={`Click to change ${character.name}'s health.`} onChange={(e) => changeHealthValues(e, "current")}/>
-                                    <h2>/</h2>
-                                    <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.health} size={4} title={`Click to change ${character.name}'s health.`} onChange={(e) => changeHealthValues(e, "max")}/>
+                                    <input className={styles.number__input} style={{color: healthColor}} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.health} size={4} title={`Click to change ${character.name}'s health.`} onChange={(e) => changeHealthValues(parseInt(e.target.value), "current")}/>
+                                    <h2 style={{color: "white"}}>/</h2>
+                                    <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.health} size={4} title={`Click to change ${character.name}'s health.`} onChange={(e) => changeHealthValues(parseInt(e.target.value), "max")}/>
                                 </div>
                                 <div className={styles.point__container}>
                                     <div className={styles.health__bar} style={{width: `${percentageCalc(currHealth, maxHealth)}%`}} />
@@ -120,9 +129,9 @@ export default function CharacterCard({ character }) {
                             <h2 className={styles.stattext__blue}>MP</h2>
                             <div className={styles.data__section}>
                                 <div className={styles.data}>
-                                    <input className={styles.number__input} style={{color: magicColor}} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.magic} size={4} title={`Click to change ${character.name}'s magic.`} onChange={(e) => changeMagicValues(e, "current")}/>
-                                    <h2>/</h2>
-                                    <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.magic} size={4} title={`Click to change ${character.name}'s magic.`} onChange={(e) => changeMagicValues(e, "max")}/>
+                                    <input className={styles.number__input} style={{color: magicColor}} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.magic} size={4} title={`Click to change ${character.name}'s magic.`} onChange={(e) => changeMagicValues(parseInt(e.target.value), "current")}/>
+                                    <h2 style={{color: "white"}}>/</h2>
+                                    <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-9]{4}"} maxLength={4} defaultValue={character.magic} size={4} title={`Click to change ${character.name}'s magic.`} onChange={(e) => changeMagicValues(parseInt(e.target.value), "max")}/>
                                 </div>
                                 <div className={styles.point__container}>
                                     <div className={styles.magic__bar} style={{width: `${percentageCalc(currMagic, maxMagic)}%`}} />
@@ -140,7 +149,7 @@ export default function CharacterCard({ character }) {
                             <input className={styles.number__input} type={"text"} inputMode={"numeric"} pattern={"[0-4]{1}"} maxLength={1} defaultValue={1} size={1} title={`Click to change ${character.name}'s limit level.`} />
                         </div>
                         <div className={styles.level__container} onClick={limitLevelIncrement}>
-                            <div className={styles.limitlevel__bar} style={{width: `${limitLevel}%`}} />
+                            <div className={`${styles.limitlevel__bar} ${limitLevel === 100 ? styles.fullmeter : ""}`} style={{width: `${limitLevel}%`}} />
                         </div>
                     </div>
                 </div>

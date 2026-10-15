@@ -5,9 +5,27 @@
     /*border: black solid 1px;*/
 }
 
+.char__image {
+    width: 140px;
+    height: 140px;
+}
+
 .char__stats {
     display: flex;
     flex-direction: column;
+}
+
+.name__input {
+    font: inherit;
+    font-size: 22px;
+    text-align: start;
+    font-weight: bolder;
+    text-shadow: black 2px 2px 0;
+    color: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: min-content;
 }
 
 .stats {
@@ -42,7 +60,7 @@
     text-align: end;
     font-weight: bolder;
     text-shadow: black 2px 2px 0;
-    color: white;
+    color: inherit;
     background: transparent;
     border: none;
     outline: none;
@@ -85,7 +103,6 @@
 }
 
 .level__container {
-    z-index: 1;
     cursor: pointer;
     width: 160px;
     height: 20px;
@@ -105,7 +122,6 @@
 }
 
 .limitlevel__container {
-    z-index: 1;
     color: white;
     display: flex;
     flex-direction: row;
@@ -116,29 +132,63 @@
     background-image: linear-gradient(to bottom, #642858, #ad48aa, #decbe2, #f0b0f1, #f28ae2);
 }
 
-@media (max-width: 950px) {
-    .number__input {
-        font-size: 18px;
+@keyframes rainbow {
+    0% {
+        background-image: linear-gradient(to bottom, #542a2a, #a15557, #d6d8c7, #ecc0b8, #f29d95);
+    }
+    25% {
+        background-image: linear-gradient(to bottom, #646017, #9f9e2d, #e6dad2, #eee4ba, #e3e850);
+    }
+    50% {
+        background-image: linear-gradient(to bottom, #115251, #359a96, #c1d7dc, #b6e5ed, #62e7e2);
+    }
+    75% {
+        background-image: linear-gradient(to bottom, #642858, #ad48aa, #decbe2, #f0b0f1, #f28ae2);
+    }
+    100% {
+        background-image: linear-gradient(to bottom, #182064, #434c9d, #c5c8da, #96a9e7, #877efd);
     }
 }
 
-@media (max-width: 790px) {
+.fullmeter {
+    animation: rainbow 2s linear infinite;
+}
+
+
+@media (max-width: 990px) {
+    .number__input {
+        font-size: 18px;
+    }
+
     .image__container {
-        width: 160px;
+        width: 150px;
+    }
+
+    .char__image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .level__container {
+        width: 150px;
+    }
+
+}
+
+@media (max-width: 710px) {
+    .image__container {
+        width: 140px;
     }
 
     .stats {
         display: flex;
         flex-direction: column;
     }
+    .point__container {
+        width: 100px;
+    }
 
     .level__container {
         width: 120px;
-    }
-}
-
-@media (max-width: 540px) {
-    .stats {
-        flex-direction: row;
     }
 }
