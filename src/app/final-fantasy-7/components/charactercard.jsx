@@ -82,7 +82,7 @@ export default function CharacterCard({ character }) {
         return Math.min(100, maxNum);
     }
     const nextLevelIncrement = () => {
-        if(nextLevel <= 90) {
+        if(nextLevel < 100) {
             setNextLevel(nextLevel + 10);
         }
         else {
@@ -91,7 +91,7 @@ export default function CharacterCard({ character }) {
         }
     }
     const limitLevelIncrement = () => {
-        if(limitLevel <= 90) {
+        if(limitLevel < 100) {
             setLimitLevel(limitLevel + 10);
         }
         else {
